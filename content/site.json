@@ -7,11 +7,11 @@
   "splashHeadline": "Open learning, built with care.",
   "splashLede": "Knowledge InSight publishes free, self-paced programs for curious minds. Every program is designed end to end: sequenced readings, guided conversation with an AI assistant, reflective writing, and self-scored checks you can take as often as you like.",
   "about": [
-    "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we bring the structure, the sequence, and the good questions.",
+    "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we bring the structure, the sequence, and the guiding questions.",
     "Our programs are open access and self-paced. Nothing is graded by a person or by an AI. Quizzes score themselves and can be retaken without limit. Written work stays with you, in your own notebook or document; we never collect it.",
     "Each program is organized as a small number of courses, each course as modules, and each module as lessons. A lesson is one sitting. The structure repeats so you can settle into it and spend your attention on the material instead of the interface."
   ],
-  "aboutAside": "The phenomenology program grew out of Adam's own research interests in phenomenology and consciousness, which is why it came first.",
+  "aboutAside": "When it comes to AI in education, I view myself as a critical optimist — someone who remains enthusiastic about the potential of AI, yet alert to the many difficult questions it raises. This project explores AI's positive potential with a focus on quality, starting with topics I'm currently interested in myself.",
   "progressHeading": "How to progress through a program",
   "progressLede": "Every lesson has the same shape, so you can settle into it and spend your attention on the material.",
   "principles": [
@@ -65,7 +65,7 @@
       "short": "In progress",
       "blurb": "This program is published while expert review is still underway. The content is complete and the sources are linked, but it has not yet been validated end to end.",
       "helpHeading": "Help us vet this program",
-      "helpLede": "You are reading it closely anyway. If something looks wrong, telling us is the fastest way to fix it.",
+      "helpLede": "You are reading it closely anyway. If something looks wrong, please tell us to help improve the program.",
       "helpPoints": [
         "<strong>Check claims against the linked sources.</strong> Every reading names where its ideas come from. If a passage misstates a source, or attributes something to the wrong thinker, say so and point to the item.",
         "<strong>Report broken or wrong links.</strong> Free editions move and paywalls change. A dead link is worth reporting even when the text around it is fine.",
