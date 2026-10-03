@@ -32,6 +32,25 @@
     });
   }
 
+  var sheetMode = window.matchMedia("(max-width: 860px)");
+
+  /* On wide screens a menu hangs off its button and can run past the right
+     edge, which widens the document and lets the page scroll sideways. Nudge
+     it back inside. Below 860px the menu is a full-width sheet anchored to the
+     bar, so there is nothing to correct. */
+  function keepInView(menu) {
+    menu.style.left = "";
+    if (sheetMode.matches) return;
+
+    var margin = 12;
+    var rect = menu.getBoundingClientRect();
+    var overflow = rect.right - (window.innerWidth - margin);
+    if (overflow <= 0) return;
+
+    var shift = Math.min(overflow, rect.left - margin);
+    if (shift > 0) menu.style.left = (-shift) + "px";
+  }
+
   pickers.forEach(function (pick) {
     var btn = pick.querySelector(".lb-pick-btn");
     var menu = pick.querySelector(".lb-menu");
@@ -45,11 +64,15 @@
       btn.setAttribute("aria-expanded", String(open));
       pick.classList.toggle("is-open", open);
       if (open) {
+        keepInView(menu);
         var current = menu.querySelector("a.is-current") || menu.querySelector("a");
         if (current) current.scrollIntoView({ block: "nearest" });
       }
     });
   });
+
+  // A resize invalidates the measured offset; closing is simpler than redoing it.
+  window.addEventListener("resize", function () { closeAll(); });
 
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".lb-pick")) closeAll();

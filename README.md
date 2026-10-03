@@ -31,6 +31,75 @@ silently bind it anyway — `SO_REUSEADDR` is permissive there — leaving two
 servers fighting over one port. `serve.py` refuses a busy port and steps to
 the next free one.
 
+## Testing on a phone
+
+Double-click **`serve-phone.bat`**, or run:
+
+```sh
+py -3 tools/serve.py --lan
+```
+
+It prints the address to type into the phone's browser, for example
+`http://192.168.0.52:8000/`. The phone must be on the same Wi-Fi.
+
+`--lan` binds every network interface, which exposes the site to anything on
+your local network for as long as it runs. That is why it is opt-in: plain
+`serve.bat` stays on this machine.
+
+If the phone cannot connect, Windows Firewall is blocking inbound traffic to
+Python. Windows normally prompts the first time and an Allow click creates the
+rule. To check or create it (needs an elevated PowerShell):
+
+```powershell
+# is there already a rule?
+Get-NetFirewallApplicationFilter | Where-Object { $_.Program -like '*python*' } |
+  ForEach-Object { $_ | Get-NetFirewallRule } | Where-Object Direction -eq Inbound |
+  Select-Object DisplayName, Profile, Action, Enabled
+
+# if not, allow just this port on private and public networks
+New-NetFirewallRule -DisplayName "Knowledge InSight dev server" -Direction Inbound `
+  -Protocol TCP -LocalPort 8000 -Action Allow -Profile Private,Public
+```
+
+Remove it again with
+`Remove-NetFirewallRule -DisplayName "Knowledge InSight dev server"`.
+
+### Finding layout bugs without a phone
+
+Horizontal scroll is almost always one element refusing to shrink, and
+guessing which is slower than measuring. Two dev tools, neither part of the
+site:
+
+```sh
+# every element wider than a 390px viewport, with the widths that caused it
+start "" "http://localhost:8000/tools/overflow-probe.html?w=390&url=/programs/phenomenology-consciousness/map/"
+
+# a screenshot at a true phone viewport
+powershell -File tools/shoot.ps1 -Path "/programs/.../map/" -Width 390 -Out shot.png
+```
+
+`overflow-probe.html` renders a page in an iframe at an exact width and reports
+the overflow and the elements causing it. `?open=lesson|module|course|item`
+clicks that control first, since a dropdown bug only shows once the menu is
+open; `?measure=sel1|sel2` prints rendered widths and flex values.
+
+Headless Edge's `--window-size` does **not** resize the layout viewport, it
+only crops the capture, so a naive phone-width screenshot shows a desktop
+layout with its right side cut off. `shoot.ps1` goes through the probe's iframe
+to get a real narrow viewport.
+
+### What differs on a phone
+
+Served over plain `http`, the page is not a *secure context*, so
+`navigator.clipboard` does not exist. `assets/js/site.js` falls back to a
+`document.execCommand` path written to work on iOS, which ignores `.select()`
+on a readonly textarea and ignores off-screen elements. Test the **Copy
+prompt** button there specifically; it takes a different code path than on
+desktop.
+
+The "Claude desktop app" button is hidden on touch devices, since the
+`claude://` scheme has nothing to open.
+
 ## Building
 
 ```sh
@@ -170,15 +239,33 @@ To connect a feedback form, fill in `statuses.in-progress` in
 `content/site.json`:
 
 ```json
-"feedbackUrl": "https://docs.google.com/forms/d/e/<id>/viewform",
-"feedbackPageField": "entry.1234567890",
-"feedbackTitleField": "entry.0987654321"
+"feedbackUrl": "https://docs.google.com/forms/d/e/<form-id>/viewform",
+"feedbackLocationField": "entry.1111111111",
+"feedbackTitleField":    "entry.2222222222",
+"feedbackPageField":     "entry.3333333333"
 ```
 
 Get the field ids from the form's **Send > Get pre-filled link**. With them set,
-`assets/js/feedback.js` appends the reader's current page URL and title so a
-report says where it came from. Leave `feedbackUrl` blank and the site shows an
-honest placeholder instead of a dead button.
+every item gains a quiet "Report an issue with this item" link, and
+`assets/js/feedback.js` prefills three values:
+
+| Field | Example | Why |
+| :---- | :---- | :---- |
+| location | `c1.m1.l2.i7` | stable id; survives a retitled lesson and sorts in the sheet |
+| where | `Course 1 - Module 1 - Lesson 2 - Item 7: Map the Aboutness…` | readable at a glance |
+| page | the full URL including `#item-7` | jumps straight back to the item |
+
+Leave `feedbackUrl` blank and no per-item links render at all, and the status
+page shows an honest placeholder rather than a dead button.
+
+`content/<program>/locations.csv` is generated on every build: one row per item
+with its id, title, and URL. Paste it into a second tab of the responses sheet
+so a report that says `c3.m2.l1.i6` is readable with a VLOOKUP, without putting
+titles into the form where they would go stale.
+
+Google Forms has no hidden fields, so a learner can see and edit the prefilled
+values. Keeping them in a final section headed "Page details (filled in
+automatically)" is the usual accommodation.
 
 ## Design
 
@@ -214,10 +301,14 @@ tell at a glance what they can start today.
 | :---- | :---- | :---- |
 | `hero-books-blue-{480,800,1280,1920}.jpg` | `knowledge-insight-background.jpg` | splash hero, responsive set |
 | `ki-mark.svg` | new | favicon and standalone mark |
-| `ki-wordmark.svg` | new | transparent wordmark for print and decks |
+| `ki-wordmark.svg` | new | transparent wordmark for print and decks (not used by the site) |
 | `og-card.jpg` | `KI background.png` | social sharing card, 1200x630 |
-| `adam-h.jpg` | `adam-h.png` | About page portrait |
-| `apple-touch-icon.png`, `favicon-32.png`, `logo-mark-256.png` | `logo.png` | icons |
+| `adam-h.jpg` | `adam-h.jpg` | About page portrait |
+
+`images/` now holds only the four originals that an asset is derived from.
+`py -3 tools/unused.py` reports any file that nothing references, and treats a
+source image as used when something in `assets/img/` was generated from it.
+| `apple-touch-icon.png`, `favicon-32.png` | `logo.png` | icons |
 
 The header mark is drawn from the icon sprite rather than loaded as an image,
 so it inherits `currentColor` and sits correctly on the dark blue bar.

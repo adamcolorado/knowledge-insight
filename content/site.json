@@ -70,9 +70,10 @@
         "<strong>Flag quiz questions that do not hold up.</strong> An answer you can defend that is marked wrong, an option with no good answer, or feedback that misses the point.",
         "<strong>Suggest improvements.</strong> A passage that reads as muddled, an example that would land better, a primary text we should have pointed you to."
       ],
-      "feedbackUrl": "",
-      "feedbackPageField": "",
-      "feedbackTitleField": "",
+      "feedbackUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd-_6HSfbIsdBjQenR8BKYSEjIjWwtPq2MMiMWUFfG7ocDKfQ/viewform",
+      "feedbackLocationField": "entry.1985826390",
+      "feedbackTitleField": "entry.676935755",
+      "feedbackPageField": "entry.620098797",
       "feedbackLabel": "Report an issue or suggest an improvement",
       "feedbackPending": "The feedback form is not connected yet. Until it is, send anything you find to the project maintainer."
     }

@@ -125,16 +125,45 @@
     return Promise.resolve(legacyCopy(text));
   };
 
+  /* The fallback matters more than it looks: navigator.clipboard only exists
+     in a secure context, so over plain http on a phone (local network testing,
+     for instance) this is the only path. iOS ignores .select() on a readonly
+     textarea and ignores elements positioned off-screen, hence the Range plus
+     setSelectionRange, and the 1px visible-but-transparent box at 16px, which
+     is the size Safari will not zoom to. */
   function legacyCopy(text) {
     var area = document.createElement("textarea");
     area.value = text;
     area.setAttribute("readonly", "");
-    area.style.cssText = "position:fixed;top:0;left:-9999px";
+    area.style.cssText =
+      "position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:0;" +
+      "outline:0;opacity:0;font-size:16px";
     document.body.appendChild(area);
-    area.select();
+
+    var selection = document.getSelection();
+    var previous = selection && selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+
     var ok = false;
-    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    try {
+      area.contentEditable = "true";
+      area.readOnly = false;
+      if (selection) {
+        var range = document.createRange();
+        range.selectNodeContents(area);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      area.setSelectionRange(0, text.length);
+      ok = document.execCommand("copy");
+    } catch (e) {
+      ok = false;
+    }
+
     document.body.removeChild(area);
+    if (previous && selection) {
+      selection.removeAllRanges();
+      selection.addRange(previous);
+    }
     return ok;
   }
 })();

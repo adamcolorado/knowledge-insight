@@ -3,6 +3,7 @@
 Build the site and serve it locally.
 
     py -3 tools/serve.py                 build, serve on 8000, open a browser
+    py -3 tools/serve.py --lan           also serve to phones on the same Wi-Fi
     py -3 tools/serve.py --port 8080     use a different port
     py -3 tools/serve.py --no-build      serve what is already generated
     py -3 tools/serve.py --no-open       do not launch a browser
@@ -13,6 +14,7 @@ listening, and it steps to the next free port if the one you asked for is busy.
 """
 
 import argparse
+import socket
 import subprocess
 import sys
 import webbrowser
@@ -54,6 +56,32 @@ class Handler(SimpleHTTPRequestHandler):
         pass  # log_request already reports the status once
 
 
+def lan_addresses():
+    """This machine's addresses on the local network.
+
+    The UDP connect sends no packets; it just asks the routing table which
+    interface would be used to reach the internet, which is the address a phone
+    on the same Wi-Fi should use.
+    """
+    found = set()
+    probe = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        probe.connect(("8.8.8.8", 80))
+        found.add(probe.getsockname()[0])
+    except OSError:
+        pass
+    finally:
+        probe.close()
+    try:
+        for info in socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET):
+            address = info[4][0]
+            if not address.startswith("127.") and not address.startswith("169.254."):
+                found.add(address)
+    except OSError:
+        pass
+    return sorted(found)
+
+
 def build():
     print("Building...", flush=True)
     result = subprocess.run([sys.executable, str(ROOT / "tools" / "build.py")])
@@ -63,12 +91,12 @@ def build():
     return True
 
 
-def listen(port):
+def listen(port, host="127.0.0.1"):
     """Bind the first free port at or above the requested one."""
     handler = partial(Handler, directory=str(ROOT))
     for candidate in range(port, port + MAX_PORT_TRIES):
         try:
-            return Server(("127.0.0.1", candidate), handler), candidate
+            return Server((host, candidate), handler), candidate
         except OSError:
             print("  port %d is busy, trying %d" % (candidate, candidate + 1), flush=True)
     raise SystemExit("No free port between %d and %d." % (port, port + MAX_PORT_TRIES))
@@ -77,6 +105,8 @@ def listen(port):
 def main():
     ap = argparse.ArgumentParser(description="Build and serve Knowledge InSight locally.")
     ap.add_argument("--port", type=int, default=8000)
+    ap.add_argument("--lan", action="store_true",
+                    help="serve to other devices on this network (phones, tablets)")
     ap.add_argument("--no-build", action="store_true")
     ap.add_argument("--no-open", action="store_true")
     args = ap.parse_args()
@@ -84,11 +114,23 @@ def main():
     if not args.no_build and not build():
         return 1
 
-    server, port = listen(args.port)
+    # Binding every interface is opt-in: it exposes the site to the network.
+    host = "0.0.0.0" if args.lan else "127.0.0.1"
+    server, port = listen(args.port, host)
     url = "http://localhost:%d/" % port
 
     print("\n  Knowledge InSight is running at %s" % url)
-    print("  Press Ctrl+C to stop.\n", flush=True)
+    if args.lan:
+        addresses = lan_addresses()
+        if addresses:
+            print("\n  On this network, open any of these on your phone:")
+            for address in addresses:
+                print("      http://%s:%d/" % (address, port))
+            print("\n  Same Wi-Fi required. If the phone cannot connect, Windows")
+            print("  Firewall is blocking the port -- see README, 'Testing on a phone'.")
+        else:
+            print("\n  No network address found; is Wi-Fi connected?")
+    print("\n  Press Ctrl+C to stop.\n", flush=True)
 
     # The socket is already bound here, so the browser cannot beat the server.
     if not args.no_open:

@@ -293,7 +293,7 @@ pre { overflow-x: auto; }
 .section-head { font-size: clamp(1.25rem, 1.05rem + .7vw, 1.5rem); margin-bottom: var(--sp-2); }
 .section-lede { color: var(--muted); max-width: 60ch; margin-bottom: var(--sp-4); }
 
-.splash-cards, .course-cards, .lesson-cards, .module-blocks, .principles, .rhythm, .plain-links { list-style: none; padding: 0; margin: 0; }
+.splash-cards, .course-cards, .lesson-cards, .module-blocks, .principles, .rhythm { list-style: none; padding: 0; margin: 0; }
 .splash-cards { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
 .splash-card a {
   display: grid; gap: .45rem; height: 100%;
@@ -306,7 +306,6 @@ pre { overflow-x: auto; }
 .sc-eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-600); }
 .sc-title { font-family: var(--font-serif); font-size: 1.42rem; font-weight: 600; color: var(--brand-deep); line-height: 1.22; }
 .sc-sub { color: var(--muted); font-style: italic; }
-.sc-desc { color: var(--text-soft); font-size: .96rem; line-height: 1.55; margin-top: .3rem; }
 .sc-meta, .cc-meta { display: flex; flex-wrap: wrap; gap: .8rem; font-size: .85rem; color: var(--muted); margin-top: .5rem; }
 .sc-meta span, .cc-meta span { display: inline-flex; align-items: center; gap: .3rem; }
 .sc-meta span + span::before, .cc-meta span + span::before { content: "·"; margin-right: .5rem; color: var(--slate-300); }
@@ -380,29 +379,45 @@ pre { overflow-x: auto; }
 
 .learnbar {
   position: sticky; top: 0; z-index: 55;
+  /* Containing block for the dropdown sheets on narrow screens. */
   background: rgba(255, 255, 255, .95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 1px 10px rgba(31, 40, 55, .05);
 }
+/* The program name rides at the top of the sticky block, in the masthead's
+   blue, so the reader always knows which program they are inside even once
+   the masthead itself has scrolled away. */
+.lb-program { background: var(--brand-deep); border-top: 1px solid rgba(255, 255, 255, .13); }
+.lb-program-inner {
+  width: min(100% - 2rem, 1180px); margin-inline: auto;
+  display: flex; align-items: center; gap: .5rem;
+  min-height: 34px; padding: .3rem 0;
+  color: #fff; text-decoration: none;
+  font-size: .86rem; font-weight: 600; letter-spacing: .01em;
+}
+.lb-program-inner:hover { color: var(--blue-200); }
+.lb-program-inner > span {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.lb-program-mark { width: 18px; height: 18px; flex: none; color: var(--blue-300); }
+
 .learnbar-inner {
   width: min(100% - 2rem, 1180px); margin-inline: auto;
   display: grid; gap: .3rem; padding: .45rem 0 .55rem;
-  justify-items: start;
+  /* Grid items must stretch, not size to their content: with justify-items:
+     start the breadcrumb takes its max-content width and overflows the track,
+     and nothing inside it ever gets the chance to shrink. Both rows are
+     left-aligned by their own flex layout anyway. */
+  justify-items: stretch;
 }
+.learnbar-inner > * { min-width: 0; }
 /* 7a. Breadcrumb with pickers ---------------------------------------------- */
 
 .lb-crumbs { min-width: 0; flex: 1; }
 .lb-crumbs ol { list-style: none; display: flex; align-items: center; flex-wrap: wrap; gap: .1rem; margin: 0; padding: 0; }
 .lb-crumb + .lb-crumb::before { content: "/"; color: var(--slate-300); margin: 0 .15rem 0 .1rem; }
 .lb-crumb { display: flex; align-items: center; }
-.lb-home a {
-  display: inline-flex; align-items: center; gap: .35rem;
-  padding: .25rem .5rem; border-radius: var(--r-sm);
-  color: var(--muted); text-decoration: none; font-size: .84rem; font-weight: 600;
-}
-.lb-home a:hover { background: var(--blue-50); color: var(--brand-dark); }
-
 .lb-pick { position: relative; }
 .lb-pick-btn {
   display: inline-flex; align-items: center; gap: .2rem;
@@ -461,6 +476,7 @@ pre { overflow-x: auto; }
 .lb-map:hover { background: var(--blue-50); border-color: var(--blue-300); }
 .lb-map .ico { width: 14px; height: 14px; }
 .lb-mapcrumb + .lb-crumb::before { content: none; }
+.lb-crumbs ol > .lb-crumb:first-child::before { content: none; }
 
 /* Item stepping rides at the end of the breadcrumb, separated by a rule
    rather than by being pushed to the far edge. */
@@ -477,8 +493,9 @@ pre { overflow-x: auto; }
 }
 .lb-step .ico { width: 16px; height: 16px; }
 .lb-step:hover { background: var(--blue-50); border-color: var(--blue-400); }
-.lb-step:disabled, .lb-step.is-off { opacity: .32; pointer-events: none; }
+.lb-step:disabled { opacity: .32; pointer-events: none; }
 .lb-itempick { position: relative; }
+.lbp-narrow { display: none; }
 .lb-itempick .lb-pick-btn { font-variant-numeric: tabular-nums; }
 .lb-itempick .lb-menu { min-width: 320px; }
 
@@ -551,7 +568,13 @@ pre { overflow-x: auto; }
 .objectives li:last-child { margin-bottom: 0; }
 
 .items { display: grid; gap: var(--sp-5); }
-.item { scroll-margin-top: calc(var(--masthead-h) + var(--learnbar-h) + 16px); }
+/* A grid item defaults to min-width:auto, so its min-content width wins over
+   the track. One table with nowrap headers then widens every item and the
+   whole page scrolls sideways. min-width:0 lets .table-wrap do its job. */
+.item { min-width: 0; scroll-margin-top: calc(var(--masthead-h) + var(--learnbar-h) + 16px); }
+.item > * { min-width: 0; }
+.prose { min-width: 0; }
+.table-wrap { min-width: 0; }
 .item-head { position: relative; max-width: var(--measure); padding-bottom: var(--sp-3); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--line); }
 .item-kind { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0 0 .5rem; }
 .kind-chip {
@@ -593,7 +616,14 @@ pre { overflow-x: auto; }
 
 /* 8a. Prose ---------------------------------------------------------------- */
 
-.prose { font-family: var(--font-serif); font-size: 1.09rem; line-height: var(--lh-prose); color: var(--text); max-width: var(--measure); }
+.prose {
+  font-family: var(--font-serif); font-size: 1.09rem; line-height: var(--lh-prose);
+  color: var(--text); max-width: var(--measure);
+  /* Some references use a bare URL as the link text. An unbreakable 300px
+     string would otherwise set the minimum width of the whole column. */
+  overflow-wrap: break-word;
+}
+.prose a, .prose code { overflow-wrap: anywhere; }
 .prose > * { max-width: var(--measure); }
 .prose h3, .prose h4, .prose h5 { font-family: var(--font-sans); color: var(--brand-dark); margin: var(--sp-5) 0 var(--sp-2); letter-spacing: 0; }
 .prose h3 { font-size: 1.14rem; font-weight: 700; }
@@ -798,7 +828,7 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 }
 .mo-lesson a:hover { background: var(--blue-50); color: var(--brand-dark); }
 .mo-num { flex: none; min-width: 2.2rem; font-size: .76rem; font-weight: 700; color: var(--brand); font-variant-numeric: tabular-nums; }
-.mo-title { flex: none; max-width: calc(100% - 9rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mo-title { flex: 0 1 auto; min-width: 0; max-width: calc(100% - 9rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* A leader rule, like a table of contents. */
 .mo-dots { flex: 1; min-width: 1.5rem; border-bottom: 1px dotted var(--line-strong); transform: translateY(-.25em); }
 .mo-time { flex: none; font-size: .78rem; color: var(--slate-400); font-variant-numeric: tabular-nums; }
@@ -806,8 +836,6 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 .mo-project .mo-mnum { background: var(--amber-ink); }
 .mo-project .mo-lessons { border-left-color: #f0e2bf; }
 
-.plain-links { display: grid; gap: .4rem; }
-.plain-links a { font-weight: 600; }
 
 /* --------------------------------------------------------------------------
    10. Pager
@@ -829,11 +857,67 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 /* The bar sheds its labels before it sheds its controls. */
 @media (max-width: 860px) {
   .lb-map span { display: none; }
-  .lb-home-text { display: none; }
   .lb-map { padding: .2rem .45rem; }
-  .lb-itempick .lb-menu { min-width: 260px; left: auto; right: 0; }
-  .mo-title { max-width: none; }
+
+  /* The breadcrumb collapses rather than wrapping onto three lines. The
+     lesson picker already lists every lesson in the course grouped by module,
+     so hiding the course and module pickers loses no destination, and the Map
+     link covers moving between courses. */
+  .lb-pick--course, .lb-pick--module { display: none; }
+  .lb-pick--lesson + .lb-items { margin-left: .35rem; padding-left: .5rem; }
+  .lb-crumbs ol { flex-wrap: nowrap; }
+  .lb-crumb { min-width: 0; }
+  /* Long labels such as "Course Project" must be able to ellipsis. A flex
+     item will not shrink past its min-content width unless told to. */
+  .lb-crumbs, .lb-crumbs ol, .lb-pick-btn { min-width: 0; }
+  /* The stepper keeps its natural size; the lesson label takes whatever is
+     left and truncates, rather than being capped at a guessed fraction. */
+  /* "Item 3 of 9" becomes "3/9", and the steppers lose a few pixels, which
+     is the difference between the row fitting and the next arrow falling off
+     the edge on a 360px phone. */
+  .lbp-wide { display: none; }
+  .lbp-narrow { display: inline; }
+  .lb-items { flex: none; gap: .15rem; margin-left: .3rem; padding-left: .45rem; }
+  .lb-step { width: 26px; height: 26px; }
+  .lb-itempick .lb-pick-btn { padding: .25rem .25rem .25rem .4rem; }
+  .lb-mapcrumb { flex: none; }
+  .lb-crumb + .lb-crumb::before { margin: 0 .1rem; }
+  .lb-pick--lesson { flex: 1 1 auto; min-width: 2.5rem; }
+  .lb-pick--lesson .lb-pick-btn { width: 100%; justify-content: flex-start; }
+  .lb-pick-label {
+    min-width: 0; flex: 0 1 auto;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  /* Menus become a sheet spanning the bar instead of hanging off a button,
+     which is what was pushing the document wider than the viewport. The
+     positioning context is the bar itself, so .lb-pick must not be one. */
+  .lb-pick, .lb-itempick { position: static; }
+  .lb-itempick .lb-menu { min-width: 0; }
+  .lb-menu {
+    position: absolute; top: 100%; left: 0; right: 0;
+    min-width: 0; max-width: none; width: auto;
+    max-height: 62vh;
+    border-left: 0; border-right: 0;
+    border-radius: 0 0 var(--r-md) var(--r-md);
+    box-shadow: 0 14px 28px rgba(22, 58, 94, .22);
+  }
+  .lb-menu ul { padding-bottom: .2rem; }
+  .lb-menu a { padding: .55rem .6rem; }
+  .lbm-text { white-space: normal; }
+
+  /* Map rows become a small grid: the number and the duration hold their
+     columns while the title wraps inside its own, instead of flex-wrapping
+     each piece onto a line of its own. */
+  .mo-lesson a {
+    display: grid; grid-template-columns: 2.3rem minmax(0, 1fr) auto auto;
+    column-gap: .5rem; align-items: baseline;
+  }
+  .mo-title { max-width: none; white-space: normal; overflow: visible; }
   .mo-dots { display: none; }
+  .mo-time { margin-left: 0; }
+  .mo-module-head a { flex: 1 1 100%; }
+  .mo-mmeta { margin-left: 0; }
 }
 
 @media (max-width: 760px) {
@@ -855,7 +939,6 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
   .pager { grid-template-columns: 1fr; }
   .pager-next { justify-content: flex-start; text-align: left; flex-direction: row-reverse; }
   .dialogue-actions .btn, .quiz-launch .btn, .writing-actions .btn { flex: 1 1 auto; justify-content: center; }
-  .learnbar-map span { display: none; }
   .prose .table-wrap { font-size: .86rem; }
 }
 
@@ -871,6 +954,16 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 .sc-soon-mark .ico { width: 26px; height: 26px; }
 .sc-soon-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--slate-600); }
 .sc-soon-sub { font-size: .88rem; line-height: 1.5; max-width: 30ch; }
+
+/* Per-item report link: present on all 366 items, so it has to be quiet
+   enough to ignore and findable when wanted. */
+.item-report { margin: var(--sp-4) 0 0; padding-top: .6rem; border-top: 1px dashed var(--line); }
+.item-report-link {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .78rem; color: var(--slate-500); text-decoration: none;
+}
+.item-report-link .ico { width: 13px; height: 13px; }
+.item-report-link:hover { color: var(--rust-ink); text-decoration: underline; }
 
 /* --------------------------------------------------------------------------
    11b. Vetting seal and status
@@ -960,7 +1053,6 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 .bio-name { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--brand-deep); margin: 0 0 .4rem; }
 .bio-body p { color: var(--text-soft); }
 
-.plain-links li { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
 
 /* --------------------------------------------------------------------------
    11d. Guided Conversation assistants
@@ -971,6 +1063,11 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 .dialogue-secondary { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin-top: var(--sp-3); }
 .btn-small { font-size: .85rem; padding: .4rem .8rem; }
 
+/* There is no desktop app on a phone, so do not offer one. */
+@media (max-width: 700px), (pointer: coarse) {
+  [data-provider="claude-app"] { display: none; }
+}
+
 /* Each assistant keeps its own tint so the row reads as a choice rather than
    a primary action with two afterthoughts. */
 .btn-assistant { border-width: 1.5px; font-weight: 650; }
@@ -978,8 +1075,6 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 .btn-claude:hover { background: #fbe9dd; border-color: #d08a5c; color: #8f3f14; }
 .btn-chatgpt { color: #0b6b58; border-color: #9ccfc1; background: #eef8f5; }
 .btn-chatgpt:hover { background: #ddf0ea; border-color: #63b49c; color: #084f41; }
-.btn-gemini { color: #2a5fb4; border-color: #a9c3ea; background: #eef3fc; }
-.btn-gemini:hover { background: #dfe9fa; border-color: #6e9ada; color: #1d4788; }
 
 /* --------------------------------------------------------------------------
    12. Print — for the journal and project prompts

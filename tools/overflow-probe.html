@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Overflow probe</title>
+<style>body{font:13px/1.5 monospace;margin:0;padding:8px}iframe{border:0;display:block}pre{white-space:pre-wrap}</style>
+</head>
+<body>
+<!--
+  Development tool, not part of the site.
+
+  Loads a page in an iframe at a chosen width and reports every element wider
+  than the viewport. Horizontal scroll on a phone is almost always one element
+  refusing to shrink, and guessing which is slower than measuring.
+
+  Serve the site, then open:
+    /tools/overflow-probe.html?url=/programs/.../map/&w=390
+  Or capture it headless:
+    msedge --headless=new --dump-dom "http://localhost:8000/tools/overflow-probe.html?url=...&w=390"
+-->
+<pre id="out">measuring...</pre>
+<iframe id="frame"></iframe>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var url = params.get("url") || "/";
+  var width = parseInt(params.get("w") || "390", 10);
+
+  var frame = document.getElementById("frame");
+  var out = document.getElementById("out");
+  frame.style.width = width + "px";
+  frame.style.height = (parseInt(params.get("h") || "1200", 10)) + "px";
+  frame.src = url;
+
+  // bare=1 turns the probe into a device frame: the iframe alone, at exactly
+  // the requested width, so a headless screenshot shows the real mobile
+  // layout. Passing --window-size to headless Edge does not resize the layout
+  // viewport, it only crops the capture, which is misleading.
+  if (params.get("bare")) {
+    document.body.style.padding = "0";
+    out.style.display = "none";
+  }
+
+  frame.addEventListener("load", function () {
+    var doc = frame.contentDocument;
+    var win = frame.contentWindow;
+
+    // open=lesson|module|course|item clicks that control first, because the
+    // overflow being hunted only appears once a menu is on screen.
+    var open = params.get("open");
+    if (open) {
+      var sel = open === "item"
+        ? ".lb-itempick .lb-pick-btn"
+        : ".lb-pick--" + open + " .lb-pick-btn";
+      var btn = doc.querySelector(sel);
+      if (btn) { btn.click(); } else { out.textContent = "no control for open=" + open; }
+    }
+
+    // scroll=<px> scrolls the framed page, which is the only way to check
+    // that a sticky element actually stays put.
+    var scrollTo = parseInt(params.get("scroll") || "0", 10);
+    if (scrollTo) win.scrollTo(0, scrollTo);
+
+    var viewport = doc.documentElement.clientWidth;
+    var scrollWidth = doc.documentElement.scrollWidth;
+
+    var lines = [];
+    lines.push("url          : " + url + (params.get("open") ? "   [" + params.get("open") + " menu open]" : ""));
+    lines.push("viewport     : " + viewport + "px");
+    lines.push("scrollWidth  : " + scrollWidth + "px");
+    lines.push("overflow     : " + (scrollWidth - viewport) + "px");
+    lines.push("");
+
+    if (scrollWidth > viewport) {
+      var culprits = [];
+      var all = doc.body.getElementsByTagName("*");
+      for (var i = 0; i < all.length; i++) {
+        var el = all[i];
+        var rect = el.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) continue;
+        var right = rect.right;
+        if (right <= viewport + 1) continue;
+        // Report the element only if its parent fits: that is the one that
+        // actually breaks out, rather than every ancestor carrying it along.
+        var parentRight = el.parentElement
+          ? el.parentElement.getBoundingClientRect().right : 0;
+        if (parentRight > viewport + 1 && el.parentElement !== doc.body) continue;
+        culprits.push({
+          sel: describe(el),
+          right: Math.round(right),
+          width: Math.round(rect.width),
+          ws: win.getComputedStyle(el).whiteSpace
+        });
+      }
+      culprits.sort(function (a, b) { return b.right - a.right; });
+      lines.push("elements breaking out of the viewport:");
+      culprits.slice(0, 25).forEach(function (c) {
+        lines.push("  right=" + c.right + "  w=" + c.width +
+                   "  white-space=" + c.ws + "  " + c.sel);
+      });
+      if (!culprits.length) lines.push("  (none isolated; overflow may come from a fixed width)");
+    } else {
+      lines.push("no horizontal overflow");
+    }
+
+    // measure=sel1|sel2 reports rendered widths, which beats reasoning about
+    // which flex item refused to shrink.
+    // hrefs=<selector> prints the final href of matching links, after the
+    // page's own scripts have rewritten them.
+    var hrefs = params.get("hrefs");
+    if (hrefs) {
+      lines.push("");
+      lines.push("hrefs:");
+      var found = doc.querySelectorAll(hrefs);
+      for (var h = 0; h < found.length && h < 4; h++) {
+        lines.push("  " + decodeURIComponent(found[h].href));
+      }
+      if (!found.length) lines.push("  none matched " + hrefs);
+    }
+
+    var measure = params.get("measure");
+    if (measure) {
+      lines.push("");
+      lines.push("measured:");
+      measure.split("|").forEach(function (sel) {
+        var nodes = doc.querySelectorAll(sel);
+        if (!nodes.length) { lines.push("  " + sel + "  -> not found"); return; }
+        for (var k = 0; k < nodes.length && k < 3; k++) {
+          var r = nodes[k].getBoundingClientRect();
+          var cs = win.getComputedStyle(nodes[k]);
+          lines.push("  " + sel + "  w=" + Math.round(r.width) +
+                     "  flex=" + cs.flexGrow + "/" + cs.flexShrink + "/" + cs.flexBasis +
+                     "  minW=" + cs.minWidth + "  disp=" + cs.display);
+        }
+      });
+    }
+
+    out.textContent = lines.join("\n");
+    document.title = "probe: overflow " + (scrollWidth - viewport) + "px";
+  });
+
+  function describe(el) {
+    var s = el.tagName.toLowerCase();
+    if (el.id) s += "#" + el.id;
+    if (el.className && typeof el.className === "string") {
+      s += "." + el.className.trim().split(/\s+/).slice(0, 3).join(".");
+    }
+    var text = (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 40);
+    return s + (text ? '  "' + text + '"' : "");
+  }
+})();
+</script>
+</body>
+</html>

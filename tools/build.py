@@ -323,7 +323,7 @@ def progress_ring(target, count, label="progress"):
             'role="img" aria-label="%s"></span>' % (attr(target), count, attr(label)))
 
 
-def picker(label, current, options, menu_id, grouped=False):
+def picker(label, current, options, menu_id, grouped=False, kind=""):
     """A breadcrumb segment that opens its siblings.
 
     The outline sidebar used to carry this. Folding it into the breadcrumb
@@ -347,11 +347,12 @@ def picker(label, current, options, menu_id, grouped=False):
                 for num, text, href, current_row in options]
 
     return (
-        '<li class="lb-crumb lb-pick">'
+        '<li class="lb-crumb lb-pick lb-pick--%s">'
         '<button type="button" class="lb-pick-btn" aria-expanded="false" aria-controls="%s">'
         '<span class="lb-pick-label">%s</span>%s</button>'
         '<div class="lb-menu" id="%s" hidden><ul>%s</ul></div></li>'
-        % (menu_id, html_escape(label), icon('chevron', 'ico lb-caret'), menu_id, ''.join(rows)))
+        % (kind or menu_id, menu_id, html_escape(label),
+           icon('chevron', 'ico lb-caret'), menu_id, ''.join(rows)))
 
 
 def learn_bar(site, program, course, module=None, lesson=None, scope=None,
@@ -362,20 +363,17 @@ def learn_bar(site, program, course, module=None, lesson=None, scope=None,
     between items. Course progress sits beneath it. Nothing is pushed to the
     right edge, so the eye reads one thing rather than two competing groups.
     """
-    crumb_items = ['<li class="lb-crumb lb-home"><a href="%s" title="%s">%s</a></li>'
-                   % (attr(program_href(program)), attr(program["title"]),
-                      icon("list", "ico") + '<span class="lb-home-text">Program</span>')]
-
-    crumb_items.append(
+    # The map is the way back up; a separate Program crumb was one hop too many.
+    crumb_items = [
         '<li class="lb-crumb lb-mapcrumb"><a class="lb-map" href="%smap/">%s<span>Map</span></a></li>'
-        % (attr(program_href(program)), icon("map")))
+        % (attr(program_href(program)), icon("map"))]
 
     # Course picker
     crumb_items.append(picker(
         "Course %d" % course["num"], course,
         [("%d" % other["num"], other["titleHtml"], course_href(program, other),
           other["slug"] == course["slug"]) for other in program["courses"]],
-        "lb-courses"))
+        "lb-courses", kind="course"))
 
     # Module picker. On a course overview no module is selected yet, so the
     # control names what it opens rather than claiming a position.
@@ -389,26 +387,36 @@ def learn_bar(site, program, course, module=None, lesson=None, scope=None,
              for other in course["modules"]]
             + ([("P", course["project"]["titleHtml"], project_href(program, course), is_project)]
                if course.get("project") else []),
-            "lb-modules"))
+            "lb-modules", kind="module"))
 
     # Lesson picker: every lesson in the course, grouped by module, so a jump
-    # across modules is still one click.
-    if lesson is not None:
+    # across modules is still one click. It renders on course and module
+    # overviews too -- there is no current lesson to name there, but the
+    # destinations are just as useful, and a bar that changes shape as you
+    # move through a course reads as broken.
+    if course["modules"]:
         groups = []
         for other_module in course["modules"]:
             groups.append((
                 "Module %d: %s" % (other_module["num"], other_module["title"]),
                 [("%d.%d" % (other_module["num"], other["num"]), other["titleHtml"],
                   lesson_href(program, course, other_module, other),
-                  not is_project and module is not None
+                  # Nothing is current on a course or module overview.
+                  not is_project and module is not None and lesson is not None
                   and other_module["num"] == module["num"] and other["num"] == lesson["num"])
                  for other in other_module["lessons"]]))
         if course.get("project"):
             groups.append(("Course project",
                            [("P", course["project"]["titleHtml"],
                              project_href(program, course), is_project)]))
-        label = "Course Project" if is_project else "Lesson %d" % lesson["num"]
-        crumb_items.append(picker(label, lesson, groups, "lb-lessons", grouped=True))
+        if is_project:
+            label = "Course Project"
+        elif lesson is not None:
+            label = "Lesson %d" % lesson["num"]
+        else:
+            label = "Lessons"
+        crumb_items.append(picker(label, lesson, groups, "lb-lessons",
+                                  grouped=True, kind="lesson"))
 
     # Item stepping sits inline at the end of the breadcrumb, so there is one
     # line of controls to read rather than two groups pulling apart.
@@ -426,7 +434,7 @@ def learn_bar(site, program, course, module=None, lesson=None, scope=None,
   <div class="lb-pick lb-itempick">
     <button type="button" class="lb-pick-btn" aria-expanded="false" aria-controls="lb-items"
             aria-label="Jump to an item in this lesson">
-      <span class="lb-pick-label">Item <b data-item-current>1</b> of {len(items)}</span>{icon('chevron', 'ico lb-caret')}
+      <span class="lb-pick-label"><span class="lbp-wide">Item </span><b data-item-current>1</b><span class="lbp-wide"> of </span><span class="lbp-narrow">/</span>{len(items)}</span>{icon('chevron', 'ico lb-caret')}
     </button>
     <div class="lb-menu lb-menu--items" id="lb-items" hidden><ul>{rows}</ul></div>
   </div>
@@ -435,6 +443,11 @@ def learn_bar(site, program, course, module=None, lesson=None, scope=None,
 
     total = course["itemCount"]
     return f"""<div class="learnbar" id="learnbar" data-scope="{attr(scope or '')}">
+  <div class="lb-program">
+    <a class="lb-program-inner" href="{attr(program_href(program))}">
+      {icon('mark', 'lb-program-mark')}<span>{html_escape(program['title'])}</span>
+    </a>
+  </div>
   <div class="learnbar-inner">
     <nav class="lb-crumbs" aria-label="Breadcrumb"><ol>{''.join(crumb_items)}</ol></nav>
     <div class="lb-progress">
@@ -496,7 +509,7 @@ def seal(site, program, size="md", link=True):
     return '<span class="%s" title="%s">%s</span>' % (classes, attr(meta["blurb"]), inner)
 
 
-def vetting_panel(site, program, compact=False):
+def vetting_panel(site, program, compact=False, scope="", where=""):
     """Guidance on what and how to vet, plus the feedback link when configured."""
     key = program.get("status", "in-progress")
     meta = site.get("statuses", {}).get(key, {})
@@ -504,7 +517,8 @@ def vetting_panel(site, program, compact=False):
         return ""
 
     if compact:
-        report = feedback_cta(meta, small=True, label="Report an issue on this page")
+        report = feedback_cta(meta, small=True, label="Report an issue on this page",
+                              loc=scope or "", where=where or "")
         return f"""<aside class="vet-strip">
   {seal(site, program, size='sm')}
   <p>{html_escape(meta.get('blurb', ''))}
@@ -526,20 +540,32 @@ def vetting_panel(site, program, compact=False):
 </section>"""
 
 
-def feedback_attrs(meta):
-    """Data attributes that let feedback.js prefill the form with the page the
-    reader was actually on. The field ids come from a Google Form prefill link
-    (Send > Get pre-filled link), and are optional."""
+def feedback_attrs(meta, loc="", where=""):
+    """Data attributes that let feedback.js prefill the form.
+
+    The field ids come from a Google Form prefill link (Send > Get pre-filled
+    link) and are all optional: with none set the link still opens the form,
+    it just arrives empty.
+
+    `loc` is the stable location id, e.g. c1.m1.l2.i7. It is deliberately not
+    a title: titles get edited, and the id is what makes a report sortable in
+    the responses sheet months later.
+    """
     bits = ['data-feedback-link']
     for key, name in (("feedbackPageField", "data-field-page"),
-                      ("feedbackTitleField", "data-field-title")):
+                      ("feedbackTitleField", "data-field-where"),
+                      ("feedbackLocationField", "data-field-loc")):
         value = (meta.get(key) or "").strip()
         if value:
             bits.append('%s="%s"' % (name, attr(value)))
+    if loc:
+        bits.append('data-loc="%s"' % attr(loc))
+    if where:
+        bits.append('data-where="%s"' % attr(where))
     return " ".join(bits)
 
 
-def feedback_cta(meta, small=False, label=None):
+def feedback_cta(meta, small=False, label=None, loc="", where=""):
     """Renders the feedback button once a form URL is configured, and an honest
     placeholder until then."""
     url = (meta.get("feedbackUrl") or "").strip()
@@ -551,8 +577,23 @@ def feedback_cta(meta, small=False, label=None):
                 % html_escape(meta.get("feedbackPending", "")))
     cls = "btn btn-small" if small else "btn btn-primary"
     anchor = ('<a class="%s" href="%s" target="_blank" rel="noopener" %s>%s<span>%s</span></a>'
-              % (cls, attr(url), feedback_attrs(meta), icon("external"), html_escape(label)))
+              % (cls, attr(url), feedback_attrs(meta, loc, where), icon("external"),
+                 html_escape(label)))
     return anchor if small else '<p class="cta-row">%s</p>' % anchor
+
+
+def item_feedback(meta, iid, where):
+    """A quiet per-item report link.
+
+    A report that names the item is worth far more than one that names the
+    page, and the learner should not have to describe where they were. Nothing
+    renders until a form URL is configured, so the pages stay clean until then.
+    """
+    if not (meta.get("feedbackUrl") or "").strip():
+        return ""
+    return ('<p class="item-report"><a class="item-report-link" href="%s" '
+            'target="_blank" rel="noopener" %s>%s<span>Report an issue with this item</span></a></p>'
+            % (attr(meta["feedbackUrl"]), feedback_attrs(meta, iid, where), icon("external")))
 
 
 def objectives_block(objectives, heading="What you will be able to do"):
@@ -602,7 +643,7 @@ def lesson_contents(items, scope):
 </details>"""
 
 
-def render_item(program, item, scope, index):
+def render_item(program, item, scope, index, where="", status_meta=None):
     label, ico = kind_label(item)
     iid = item_id(scope, index)
     bits = []
@@ -633,6 +674,10 @@ def render_item(program, item, scope, index):
         bits.append('<div class="prose">%s</div>' % item["bodyHtml"])
         if item["type"] in (JOURNAL, ASSIGNMENT):
             bits.append(writing_actions(item, iid))
+
+    if status_meta:
+        bits.append(item_feedback(status_meta, iid,
+                                  "%s - Item %d: %s" % (where, index + 1, item["title"])))
 
     return ('<article class="item item--%s%s" id="%s" data-item-id="%s">%s</article>'
             % (item["type"], " is-optional" if item["optional"] else "",
@@ -733,7 +778,12 @@ def build_lesson_page(site, program, course, module, lesson, stops, index, scope
     if total != required:
         meta_bits.append("%s without the optional journal" % fmt_minutes(required))
 
-    body_items = "".join(render_item(program, it, scope, i) for i, it in enumerate(items))
+    status_meta = site.get("statuses", {}).get(program.get("status", ""), {})
+    where = ("Course %d - Course Project" % course["num"] if is_project
+             else "Course %d - Module %d - Lesson %d" % (course["num"], module["num"], lesson["num"]))
+    body_items = "".join(
+        render_item(program, it, scope, i, where, status_meta)
+        for i, it in enumerate(items))
 
     main = f"""<main id="main" class="learn-main">
   <header class="lesson-head">
@@ -747,7 +797,7 @@ def build_lesson_page(site, program, course, module, lesson, stops, index, scope
     </div>
     {lesson_contents(items, scope)}
   </header>
-  {vetting_panel(site, program, compact=True)}
+  {vetting_panel(site, program, compact=True, scope=scope, where=where)}
   <div class="items">{body_items}</div>
   {pager(stops, index)}
 </main>"""
@@ -804,7 +854,7 @@ def build_module_page(site, program, course, module, stops, index):
 <div class="learn">{main}</div>"""
     return page(module["title"], body, description=module.get("description", "")[:300],
                 body_class="page-module", site=site, program_id=program["id"],
-                scripts=("progress.js", "feedback.js"))
+                scripts=("progress.js", "lessonnav.js", "feedback.js"))
 
 
 def build_course_page(site, program, course, stops, index):
@@ -881,7 +931,7 @@ def build_course_page(site, program, course, stops, index):
 <div class="learn">{main}</div>"""
     return page(course["title"], body, description=strip_md(course["descriptionHtml"])[:280],
                 body_class="page-course", site=site, program_id=program["id"],
-                scripts=("progress.js", "feedback.js"))
+                scripts=("progress.js", "lessonnav.js", "feedback.js"))
 
 
 def build_program_page(site, program):
@@ -1384,8 +1434,45 @@ def build_program(site, spec, out_root):
 
     write(CONTENT / program["id"] / "program.json",
           json.dumps(nav_tree(program), indent=1, ensure_ascii=False))
+    write(CONTENT / program["id"] / "locations.csv", locations_csv(program))
 
     return program, warnings, quiz_count, len(stops)
+
+
+def locations_csv(program):
+    """Every stable location id with its human-readable title.
+
+    Paste this into a second tab of the form's responses sheet and a report
+    that says `c3.m2.l1.i6` becomes readable with a VLOOKUP, without having to
+    put titles into the form itself where they would go stale.
+    """
+    rows = ["id,course,module,lesson,item,type,title,url"]
+
+    def esc(value):
+        value = str(value if value is not None else "")
+        if any(ch in value for ch in (",", '"', "\n")):
+            return '"%s"' % value.replace('"', '""')
+        return value
+
+    def add(scope, index, item, course_num, module_num, lesson_num, href):
+        rows.append(",".join(esc(v) for v in [
+            item_id(scope, index), course_num, module_num, lesson_num,
+            index + 1, item["type"], item["title"], "%s#%s" % (href, item["anchor"]),
+        ]))
+
+    for course in program["courses"]:
+        for module in course["modules"]:
+            for lesson in module["lessons"]:
+                scope = lesson_id(course, module, lesson)
+                href = lesson_href(program, course, module, lesson)
+                for index, item in enumerate(lesson["items"]):
+                    add(scope, index, item, course["num"], module["num"], lesson["num"], href)
+        if course.get("project"):
+            scope = project_id(course)
+            href = project_href(program, course)
+            for index, item in enumerate(course["project"]["items"]):
+                add(scope, index, item, course["num"], "", "project", href)
+    return "\n".join(rows) + "\n"
 
 
 def emit_quizzes(lesson, scope, quiz_dir):
