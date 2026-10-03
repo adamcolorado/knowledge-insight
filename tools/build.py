@@ -14,6 +14,7 @@ adding an entry to content/site.json and dropping its markdown in markdown/.
 """
 
 import argparse
+import datetime
 import json
 import re
 import shutil
@@ -215,6 +216,7 @@ def masthead(site):
 
 def site_foot(site):
     org = site.get("org", "Knowledge InSight")
+    legal = site.get("legalName", org)
     return f"""<footer class="site-foot">
   <div class="site-foot-inner">
     <p class="foot-brand">{html_escape(org)}</p>
@@ -223,8 +225,25 @@ def site_foot(site):
       <a href="/">Home</a><a href="/about.html">About</a><a href="/#programs">Programs</a>
     </nav>
     <p class="foot-fine">Open access. Self-paced. Your progress is stored in this browser only.</p>
+    <p class="foot-fine foot-legal">&copy; <span data-year>{datetime.date.today().year}</span> {html_escape(legal)}
+      <span aria-hidden="true">&middot;</span> {contact_link(site)}</p>
   </div>
 </footer>"""
+
+
+def contact_link(site):
+    """The footer contact link, kept out of reach of address harvesters.
+
+    The address never appears in the HTML: user and domain are stored
+    reversed in data attributes and site.js assembles the mailto: on load.
+    Without JavaScript the reader gets a spelled-out address instead.
+    """
+    user = site.get("contactUser", "contact")
+    domain = site.get("domain", "knowledgeinsight.org")
+    spelled = "%s at %s" % (user, domain.replace(".", " dot "))
+    return ('<a class="foot-mail" data-mail-u="%s" data-mail-d="%s">Contact us</a>'
+            '<noscript> (%s)</noscript>'
+            % (attr(user[::-1]), attr(domain[::-1]), html_escape(spelled)))
 
 
 # ==========================================================================

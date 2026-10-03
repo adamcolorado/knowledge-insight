@@ -220,6 +220,8 @@ pre { overflow-x: auto; }
 .foot-nav { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-4); }
 .foot-nav a { color: #fff; text-decoration: none; font-size: .95rem; border-bottom: 1px solid rgba(255,255,255,.3); }
 .foot-fine { font-size: .85rem; color: var(--blue-300); margin: 0; }
+.foot-legal { margin-top: var(--sp-2); }
+.foot-legal a { color: #fff; }
 
 /* --------------------------------------------------------------------------
    4. Buttons, chips, bars

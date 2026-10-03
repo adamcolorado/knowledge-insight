@@ -53,6 +53,24 @@
     });
   }
 
+  /* ------------------------------------------------------- copyright year */
+
+  // The build writes its own year; this keeps it current between rebuilds.
+  KI.$$("[data-year]").forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+
+  /* --------------------------------------------------------- contact link */
+
+  // The address is stored reversed and split so it never sits in the HTML
+  // for harvesters to scrape; it is only put together here.
+  KI.$$("[data-mail-u]").forEach(function (link) {
+    var rev = function (s) { return s.split("").reverse().join(""); };
+    var addr = rev(link.getAttribute("data-mail-u")) + "@" + rev(link.getAttribute("data-mail-d"));
+    link.href = "mailto:" + addr;
+    link.title = addr;
+  });
+
   /* --------------------------------------------------------- resume point */
 
   // The resume point is kept per program, so a second program does not
