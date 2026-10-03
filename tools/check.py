@@ -171,10 +171,14 @@ def main():
     # Every location id a feedback link can send must resolve in locations.csv,
     # or the report arrives in the sheet with no title against it.
     import csv as _csv
+    # Ids restart at c1 in every program, so each CSV answers only for its own pages.
     for csv_path in ROOT.glob("content/*/locations.csv"):
         known = {row[0] for row in _csv.reader(csv_path.open(encoding="utf-8"))}
+        program_root = ROOT / "programs" / csv_path.parent.name
         emitted = set()
         for page in pages:
+            if program_root not in page.parents:
+                continue
             emitted |= set(re.findall(r'data-loc="([^"]+)"',
                                       page.read_text(encoding="utf-8")))
         orphans = sorted(emitted - known)

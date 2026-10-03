@@ -31,6 +31,7 @@ JOURNAL = "journal"
 KNOWLEDGE_CHECK = "knowledge-check"
 GRADED_QUIZ = "graded-quiz"
 ASSIGNMENT = "assignment"
+ACTIVITY = "activity"
 
 ITEM_META = {
     READING:         {"label": "Reading",             "icon": "reading",    "emoji": "\U0001F4D6"},
@@ -39,6 +40,7 @@ ITEM_META = {
     KNOWLEDGE_CHECK: {"label": "Knowledge Check",     "icon": "check",      "emoji": "❓"},
     GRADED_QUIZ:     {"label": "Graded Quiz",         "icon": "quiz",       "emoji": "❓"},
     ASSIGNMENT:      {"label": "Writing Assignment",  "icon": "assignment", "emoji": "✍️"},
+    ACTIVITY:        {"label": "Hands-on Activity",   "icon": "activity",   "emoji": "✍️"},
 }
 
 EMOJI_READING = "\U0001F4D6"
@@ -50,7 +52,11 @@ PASS_PERCENT = 80
 
 # Repeated scaffolding in item titles. The type chip already says what the item
 # is, so the prefix is dropped from the displayed title.
-TITLE_NOISE = re.compile(r"^Hands-on Activity:\s*")
+TITLE_NOISE = re.compile(r"^(?:Hands-on Activity|Guided Conversation|Journal Prompt):\s*")
+
+# Readings that walk through one case at length. They share the "Guided
+# Reading" chip whichever name a program uses for them.
+GUIDED_PREFIXES = ("Guided Close Reading", "Guided Walkthrough", "Worked Example")
 
 # --------------------------------------------------------------------------
 # Heading classification
@@ -117,12 +123,19 @@ def classify_item(title):
     kind, subtype = READING, None
     if first == EMOJI_READING:
         kind = READING
-        if rest.startswith("Guided Close Reading") or rest.startswith("Guided Walkthrough"):
+        if rest.startswith(GUIDED_PREFIXES):
             subtype = "guided"
     elif first == EMOJI_DIALOGUE:
         kind = DIALOGUE
     elif first == EMOJI_WRITE:
-        kind = JOURNAL if "Journal Entry" in rest else ASSIGNMENT
+        # A journal is optional reflective writing; a practical optional task is
+        # a hands-on activity; a required piece of writing is an assignment.
+        if "Journal Entry" in rest or rest.startswith("Journal Prompt"):
+            kind = JOURNAL
+        elif rest.startswith("Hands-on Activity"):
+            kind = ACTIVITY
+        else:
+            kind = ASSIGNMENT
     elif first == EMOJI_QUIZ:
         kind = GRADED_QUIZ if rest.startswith("Graded Quiz") else KNOWLEDGE_CHECK
     else:

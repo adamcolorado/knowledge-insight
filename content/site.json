@@ -82,6 +82,48 @@
   },
   "programs": [
     {
+      "id": "ai-literacy",
+      "title": "AI Literacy",
+      "subtitle": "Understand how AI models work, use them well in your own work, and judge the arguments about them.",
+      "summary": "An open-access, self-paced program on how large language models work, how to use them ethically and productively, and the controversies around them.",
+      "status": "in-progress",
+      "description": "AI assistants now draft, summarize, and advise for millions of people, and most of us use them without knowing what is happening behind the answers. This program starts there. It explains, in words and with no math or code, how a language model learns from text, how a trained model becomes an assistant, and why fluent answers can still be wrong.\n\nFrom there it turns to your own use: testing a model on the tasks you care about, checking what it tells you, and setting rules for disclosure, privacy, and dependence. It closes with the arguments that fill the news, from alignment and safety to jobs, copyright, and regulation, each put in the form its strongest advocates would accept. Each course ends with a project of your own: explaining one model answer, writing and testing an AI-use protocol, and mapping a live controversy.",
+      "audience": "Anyone who can hold a conversation with an AI chatbot and wants to understand, use, and judge these tools. No technical or policy background is assumed.",
+      "level": "Introductory",
+      "format": "Text-based, self-paced",
+      "outcomes": [
+        "Explain how a language model learns from text, becomes an assistant, and produces fluent errors",
+        "Test a model on your own tasks and verify the claims, sources, and citations in what it gives you",
+        "Use AI for writing, analysis, and delegated work with rules for disclosure, privacy, and dependence that keep your judgment in charge",
+        "Weigh the competing claims about AI safety, work, information, creative rights, and governance, and state the strongest case on each side"
+      ],
+      "rhythm": [
+        { "kind": "reading", "title": "A motivating reading", "body": "Why the question matters, in three minutes." },
+        { "kind": "reading", "title": "Four concept readings", "body": "The ideas themselves, one at a time." },
+        { "kind": "reading", "title": "A guided walkthrough", "body": "One worked case, followed step by step." },
+        { "kind": "dialogue", "title": "A Guided Conversation", "body": "A structured conversation you run in your own AI account." },
+        { "kind": "activity", "title": "An optional activity or journal entry", "body": "A short hands-on task or writing prompt, done in your own notes." },
+        { "kind": "knowledge-check", "title": "A knowledge check", "body": "Five questions, ungraded, retry as often as you like." }
+      ],
+      "sourceFiles": [
+        {
+          "course": 1,
+          "slug": "how-llms-work",
+          "website": "AI Literacy/Course 1 - How LLMs Work website.md"
+        },
+        {
+          "course": 2,
+          "slug": "using-ai-ethically-and-productively",
+          "website": "AI Literacy/Course 2 - Using AI Ethically and Productively website.md"
+        },
+        {
+          "course": 3,
+          "slug": "concerns-and-controversies",
+          "website": "AI Literacy/Course 3 - AI Concerns and Controversies website.md"
+        }
+      ]
+    },
+    {
       "id": "phenomenology-consciousness",
       "title": "Phenomenology for Consciousness Studies",
       "subtitle": "Trace phenomenology from Husserl to Merleau-Ponty and apply it to today's consciousness debates.",
@@ -125,7 +167,7 @@
       ]
     }
   ],
-  "placeholderCards": 2,
+  "placeholderCards": 1,
   "placeholderText": "Another program is on the way.",
   "placeholderSub": "We are building more programs for curious minds. This space will fill in as they are ready."
 }

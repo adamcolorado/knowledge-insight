@@ -15,6 +15,7 @@ adding an entry to content/site.json and dropping its markdown in markdown/.
 
 import argparse
 import datetime
+import html
 import json
 import re
 import shutil
@@ -24,8 +25,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from mdrender import html_escape, render, strip_md                # noqa: E402
-from parse import (ASSIGNMENT, DIALOGUE, GRADED_QUIZ, ITEM_META,  # noqa: E402
-                   JOURNAL, KNOWLEDGE_CHECK, READING, parse_course)
+from parse import (ACTIVITY, ASSIGNMENT, DIALOGUE, GRADED_QUIZ,   # noqa: E402
+                   ITEM_META, JOURNAL, KNOWLEDGE_CHECK, READING, parse_course)
 
 ROOT = Path(__file__).resolve().parent.parent
 MARKDOWN = ROOT / "markdown"
@@ -59,6 +60,8 @@ ICONS = {
             '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/>',
     "assignment": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>'
                   '<path d="M14 2v6h6"/><path d="M8 13h5"/><path d="M8 17h8"/>',
+    "activity": '<path d="M10 2v7.3L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 9.3V2"/>'
+                '<path d="M8.5 2h7"/><path d="M7 15h10"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
     "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     "arrow-left": '<path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>',
@@ -136,6 +139,11 @@ def clip(text, limit):
     if " " in cut:
         cut = cut[:cut.rindex(" ")]
     return cut.rstrip(" ,;:.") + "…"
+
+
+def html_text(fragment):
+    """Plain text of rendered HTML, for card blurbs and meta descriptions."""
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", fragment or "")).split())
 
 
 def item_minutes(items, include_optional=True):
@@ -691,7 +699,7 @@ def render_item(program, item, scope, index, where="", status_meta=None):
         bits.append(quiz_block(program, item, iid))
     else:
         bits.append('<div class="prose">%s</div>' % item["bodyHtml"])
-        if item["type"] in (JOURNAL, ASSIGNMENT):
+        if item["type"] in (JOURNAL, ASSIGNMENT, ACTIVITY):
             bits.append(writing_actions(item, iid))
 
     if status_meta:
@@ -795,7 +803,10 @@ def build_lesson_page(site, program, course, module, lesson, stops, index, scope
     if total:
         meta_bits.append("%s total" % fmt_minutes(total))
     if total != required:
-        meta_bits.append("%s without the optional journal" % fmt_minutes(required))
+        optional = {it["type"] for it in items if it["optional"]}
+        what = ("optional activity" if optional == {ACTIVITY}
+                else "optional journal" if optional == {JOURNAL} else "optional items")
+        meta_bits.append("%s without the %s" % (fmt_minutes(required), what))
 
     status_meta = site.get("statuses", {}).get(program.get("status", ""), {})
     where = ("Course %d - Course Project" % course["num"] if is_project
@@ -948,7 +959,7 @@ def build_course_page(site, program, course, stops, index):
 
     body = f"""{learn_bar(site, program, course)}
 <div class="learn">{main}</div>"""
-    return page(course["title"], body, description=strip_md(course["descriptionHtml"])[:280],
+    return page(course["title"], body, description=html_text(course["descriptionHtml"])[:280],
                 body_class="page-course", site=site, program_id=program["id"],
                 scripts=("progress.js", "lessonnav.js", "feedback.js"))
 
@@ -960,7 +971,7 @@ def build_program_page(site, program):
   <a href="{attr(course_href(program, course))}">
     <span class="cc-num">Course {course['num']}</span>
     <span class="cc-title">{course["titleHtml"]}</span>
-    <span class="cc-desc">{html_escape(clip(strip_md(course["descriptionHtml"]), 200))}</span>
+    <span class="cc-desc">{html_escape(clip(html_text(course["descriptionHtml"]), 200))}</span>
     <span class="cc-meta">
       <span>{plural(len(course['modules']), 'module')}</span>
       <span>{plural(course['lessonCount'], 'lesson')}</span>
@@ -975,7 +986,9 @@ def build_program_page(site, program):
     first_lesson = first_course["modules"][0]["lessons"][0]
     start = lesson_href(program, first_course, first_course["modules"][0], first_lesson)
 
-    rhythm = [
+    # A program can describe its own lesson pattern in content/site.json; the
+    # default is the one the first program was written to.
+    rhythm = [(r["kind"], r["title"], r["body"]) for r in program.get("rhythm", [])] or [
         (READING, "A motivating reading", "Why the question matters, in three minutes."),
         (READING, "Four concept readings", "The ideas themselves, one at a time."),
         (READING, "A guided close reading", "One primary passage, walked through line by line."),

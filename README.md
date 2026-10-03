@@ -150,12 +150,19 @@ Pages or any static host.
 ### Content model
 
 `Program > Course > Module > Lesson > Item`, with item types `reading`,
-`dialogue`, `journal`, `knowledge-check`, `graded-quiz`, and `assignment`.
+`dialogue`, `journal`, `activity`, `knowledge-check`, `graded-quiz`, and
+`assignment`. A ✍️ item is a journal if its title says "Journal Entry" or
+starts "Journal Prompt", an activity if it starts "Hands-on Activity", and an
+assignment otherwise.
 Adding a type — `video`, say — means adding an icon, a colour pair, and a
 render branch; the rail, progress, and navigation pick it up unchanged.
 
-Nothing in the templates is specific to phenomenology. A second program is a
-new entry in `content/site.json` plus its Markdown files.
+Nothing in the templates is specific to phenomenology. A new program is a
+new entry in `content/site.json` plus its Markdown files, which may sit in a
+subfolder of `markdown/` (`"website": "AI Literacy/Course 1 - ….md"`). Order
+in the `programs` array is order on the splash page. An optional `rhythm`
+list on the program describes its lesson pattern on the program page; without
+one, the original program's pattern is shown.
 
 ### Parsing
 

@@ -1,0 +1,365 @@
+{
+ "id": "ai-literacy",
+ "title": "AI Literacy",
+ "href": "/programs/ai-literacy/",
+ "items": 290,
+ "lessons": 30,
+ "minutes": 2404,
+ "courses": [
+  {
+   "num": 1,
+   "title": "How LLMs Work",
+   "href": "/programs/ai-literacy/how-llms-work/",
+   "items": 88,
+   "minutes": 731,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Machine Learning and Language Models",
+     "href": "/programs/ai-literacy/how-llms-work/machine-learning-and-language-models/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Machine Learning Basics: Learning from examples instead of rules",
+       "id": "c1.m1.l1",
+       "href": "/programs/ai-literacy/how-llms-work/machine-learning-and-language-models/learning-from-examples-instead-of-rules/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Machine Learning Basics: Neural networks and how training adjusts them",
+       "id": "c1.m1.l2",
+       "href": "/programs/ai-literacy/how-llms-work/machine-learning-and-language-models/neural-networks-and-how-training-adjusts-them/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Machine Learning Basics: Tokens, meaning, and next-token prediction",
+       "id": "c1.m1.l3",
+       "href": "/programs/ai-literacy/how-llms-work/machine-learning-and-language-models/tokens-meaning-and-next-token-prediction/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Building a Modern Model",
+     "href": "/programs/ai-literacy/how-llms-work/building-a-modern-model/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Building a Model: The transformer and attention",
+       "id": "c1.m2.l1",
+       "href": "/programs/ai-literacy/how-llms-work/building-a-modern-model/the-transformer-and-attention/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Building a Model: Pretraining at scale: data, compute, and cost",
+       "id": "c1.m2.l2",
+       "href": "/programs/ai-literacy/how-llms-work/building-a-modern-model/pretraining-at-scale-data-compute-and-cost/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Building a Model: From pretrained model to assistant",
+       "id": "c1.m2.l3",
+       "href": "/programs/ai-literacy/how-llms-work/building-a-modern-model/from-pretrained-model-to-assistant/",
+       "items": 11,
+       "minutes": 97
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Capabilities, Limits, and Trajectory",
+     "href": "/programs/ai-literacy/how-llms-work/capabilities-limits-and-trajectory/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Capabilities and Limits: Why models err, and what is known about their inner workings",
+       "id": "c1.m3.l1",
+       "href": "/programs/ai-literacy/how-llms-work/capabilities-limits-and-trajectory/why-models-err-and-what-is-known-about-their-inner/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Capabilities and Limits: Reasoning, tools, and agents",
+       "id": "c1.m3.l2",
+       "href": "/programs/ai-literacy/how-llms-work/capabilities-limits-and-trajectory/reasoning-tools-and-agents/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Capabilities and Limits: Measuring progress and AI-assisted AI research",
+       "id": "c1.m3.l3",
+       "href": "/programs/ai-literacy/how-llms-work/capabilities-limits-and-trajectory/measuring-progress-and-ai-assisted-ai-research/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "Explain a Model's Answer",
+    "id": "c1.project",
+    "href": "/programs/ai-literacy/how-llms-work/course-project/",
+    "items": 3
+   }
+  },
+  {
+   "num": 2,
+   "title": "Using AI Ethically and Productively",
+   "href": "/programs/ai-literacy/using-ai-ethically-and-productively/",
+   "items": 87,
+   "minutes": 727,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Evaluating Models and Outputs",
+     "href": "/programs/ai-literacy/using-ai-ethically-and-productively/evaluating-models-and-outputs/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Evaluating AI: Testing a model on your own tasks",
+       "id": "c2.m1.l1",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/evaluating-models-and-outputs/testing-a-model-on-your-own-tasks/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Evaluating AI: Verifying claims, sources, and citations",
+       "id": "c2.m1.l2",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/evaluating-models-and-outputs/verifying-claims-sources-and-citations/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Evaluating AI: Bias, sycophancy, and persuasion in outputs",
+       "id": "c2.m1.l3",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/evaluating-models-and-outputs/bias-sycophancy-and-persuasion-in-outputs/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Working Methods",
+     "href": "/programs/ai-literacy/using-ai-ethically-and-productively/working-methods/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Working Methods: Prompts and context",
+       "id": "c2.m2.l1",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/working-methods/prompts-and-context/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Working Methods: Thinking, writing, and analysis with AI",
+       "id": "c2.m2.l2",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/working-methods/thinking-writing-and-analysis-with-ai/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Working Methods: Delegating to agents and keeping oversight",
+       "id": "c2.m2.l3",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/working-methods/delegating-to-agents-and-keeping-oversight/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Responsible Use",
+     "href": "/programs/ai-literacy/using-ai-ethically-and-productively/responsible-use/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Responsible Use: Disclosure, authorship, and accountability",
+       "id": "c2.m3.l1",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/responsible-use/disclosure-authorship-and-accountability/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Responsible Use: Privacy, confidentiality, and copyright in your own use",
+       "id": "c2.m3.l2",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/responsible-use/privacy-confidentiality-and-copyright-in-your-own/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Responsible Use: Dependence, skill, and learning",
+       "id": "c2.m3.l3",
+       "href": "/programs/ai-literacy/using-ai-ethically-and-productively/responsible-use/dependence-skill-and-learning/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "A Tested AI-Use Protocol",
+    "id": "c2.project",
+    "href": "/programs/ai-literacy/using-ai-ethically-and-productively/course-project/",
+    "items": 3
+   }
+  },
+  {
+   "num": 3,
+   "title": "AI Concerns and Controversies",
+   "href": "/programs/ai-literacy/concerns-and-controversies/",
+   "items": 115,
+   "minutes": 946,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Safety and Alignment",
+     "href": "/programs/ai-literacy/concerns-and-controversies/safety-and-alignment/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Safety and Alignment: The alignment problem",
+       "id": "c3.m1.l1",
+       "href": "/programs/ai-literacy/concerns-and-controversies/safety-and-alignment/the-alignment-problem/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Safety and Alignment: What safety evaluations and interpretability show",
+       "id": "c3.m1.l2",
+       "href": "/programs/ai-literacy/concerns-and-controversies/safety-and-alignment/what-safety-evaluations-and-interpretability-show/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Safety and Alignment: Forecasts in conflict: catastrophe, abundance, and normal technology",
+       "id": "c3.m1.l3",
+       "href": "/programs/ai-literacy/concerns-and-controversies/safety-and-alignment/forecasts-in-conflict-catastrophe-abundance-and/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Work, Education, and Economic Power",
+     "href": "/programs/ai-literacy/concerns-and-controversies/work-education-and-economic-power/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Work and Power: Jobs, tasks, and productivity",
+       "id": "c3.m2.l1",
+       "href": "/programs/ai-literacy/concerns-and-controversies/work-education-and-economic-power/jobs-tasks-and-productivity/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Work and Power: AI in schools and universities",
+       "id": "c3.m2.l2",
+       "href": "/programs/ai-literacy/concerns-and-controversies/work-education-and-economic-power/ai-in-schools-and-universities/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Work and Power: Chips, data centers, energy, and concentration of power",
+       "id": "c3.m2.l3",
+       "href": "/programs/ai-literacy/concerns-and-controversies/work-education-and-economic-power/chips-data-centers-energy-and-concentration-of-power/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Information, Fairness, and Creative Rights",
+     "href": "/programs/ai-literacy/concerns-and-controversies/information-fairness-and-creative-rights/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Information and Rights: Synthetic media, misinformation, and trust",
+       "id": "c3.m3.l1",
+       "href": "/programs/ai-literacy/concerns-and-controversies/information-fairness-and-creative-rights/synthetic-media-misinformation-and-trust/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Information and Rights: Bias, fairness, and automated decisions",
+       "id": "c3.m3.l2",
+       "href": "/programs/ai-literacy/concerns-and-controversies/information-fairness-and-creative-rights/bias-fairness-and-automated-decisions/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Information and Rights: Copyright, training data, and creative work",
+       "id": "c3.m3.l3",
+       "href": "/programs/ai-literacy/concerns-and-controversies/information-fairness-and-creative-rights/copyright-training-data-and-creative-work/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 4,
+     "title": "Governance and Regulation",
+     "href": "/programs/ai-literacy/concerns-and-controversies/governance-and-regulation/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Governance: Regulatory models: the European Union, the United States, and China",
+       "id": "c3.m4.l1",
+       "href": "/programs/ai-literacy/concerns-and-controversies/governance-and-regulation/regulatory-models-the-european-union-the-united/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Governance: Company self-governance and its critics",
+       "id": "c3.m4.l2",
+       "href": "/programs/ai-literacy/concerns-and-controversies/governance-and-regulation/company-self-governance-and-its-critics/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Governance: International coordination, security, and military use",
+       "id": "c3.m4.l3",
+       "href": "/programs/ai-literacy/concerns-and-controversies/governance-and-regulation/international-coordination-security-and-military-use/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "Map a Live Controversy",
+    "id": "c3.project",
+    "href": "/programs/ai-literacy/concerns-and-controversies/course-project/",
+    "items": 3
+   }
+  }
+ ]
+}

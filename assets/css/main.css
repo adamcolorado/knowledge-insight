@@ -351,6 +351,7 @@ pre { overflow-x: auto; }
 .kind-dialogue  { background: var(--k-dialogue-bg); color: var(--k-dialogue); }
 .kind-journal   { background: var(--k-journal-bg);  color: var(--k-journal); }
 .kind-assignment{ background: var(--k-journal-bg);  color: var(--k-journal); }
+.kind-activity  { background: var(--k-journal-bg);  color: var(--k-journal); }
 .kind-knowledge-check { background: var(--k-quiz-bg); color: var(--k-quiz); }
 .kind-graded-quiz     { background: var(--k-quiz-bg); color: var(--k-quiz); }
 
@@ -540,7 +541,7 @@ pre { overflow-x: auto; }
 .lc-ico .ico { width: 13px; height: 13px; }
 .lc-reading .lc-ico { background: var(--k-reading-bg); color: var(--k-reading); }
 .lc-dialogue .lc-ico { background: var(--k-dialogue-bg); color: var(--k-dialogue); }
-.lc-journal .lc-ico, .lc-assignment .lc-ico { background: var(--k-journal-bg); color: var(--k-journal); }
+.lc-journal .lc-ico, .lc-assignment .lc-ico, .lc-activity .lc-ico { background: var(--k-journal-bg); color: var(--k-journal); }
 .lc-knowledge-check .lc-ico, .lc-graded-quiz .lc-ico { background: var(--k-quiz-bg); color: var(--k-quiz); }
 .lc-text { flex: 1; min-width: 0; display: grid; gap: .05rem; }
 .lc-kind { font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate-500); }
@@ -601,19 +602,19 @@ pre { overflow-x: auto; }
 .item-done[aria-pressed="true"] { background: var(--green-ink); border-color: var(--green-ink); color: #fff; }
 .item--reading .kind-chip { background: var(--k-reading-bg); color: var(--k-reading); }
 .item--dialogue .kind-chip { background: var(--k-dialogue-bg); color: var(--k-dialogue); }
-.item--journal .kind-chip, .item--assignment .kind-chip { background: var(--k-journal-bg); color: var(--k-journal); }
+.item--journal .kind-chip, .item--assignment .kind-chip, .item--activity .kind-chip { background: var(--k-journal-bg); color: var(--k-journal); }
 .item--knowledge-check .kind-chip, .item--graded-quiz .kind-chip { background: var(--k-quiz-bg); color: var(--k-quiz); }
 
 .item.is-optional .item-head { border-bottom-style: dashed; }
 
 /* Interactive items sit in a card, so the reading flow visibly stops. */
-.item--dialogue, .item--journal, .item--assignment,
+.item--dialogue, .item--journal, .item--assignment, .item--activity,
 .item--knowledge-check, .item--graded-quiz {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
   padding: var(--sp-5) var(--sp-5) var(--sp-5); box-shadow: var(--shadow-1);
 }
 .item--dialogue { border-top: 3px solid var(--k-dialogue); }
-.item--journal, .item--assignment { border-top: 3px solid var(--amber); }
+.item--journal, .item--assignment, .item--activity { border-top: 3px solid var(--amber); }
 .item--knowledge-check, .item--graded-quiz { border-top: 3px solid var(--k-quiz); }
 
 /* 8a. Prose ---------------------------------------------------------------- */
@@ -932,7 +933,7 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 
   .learn { width: min(100% - 1.6rem, 100%); }
   .learn-main { padding-top: var(--sp-4); }
-  .item--dialogue, .item--journal, .item--assignment,
+  .item--dialogue, .item--journal, .item--assignment, .item--activity,
   .item--knowledge-check, .item--graded-quiz { padding: var(--sp-4); border-radius: var(--r-md); }
   .item-title { padding-right: 0; }
   .item-done { position: static; margin-top: var(--sp-3); }
@@ -1092,7 +1093,7 @@ a.seal:hover { box-shadow: var(--shadow-1); }
   .prose, .prose > * { max-width: none; }
   .item { break-inside: avoid-page; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; color: #555; word-break: break-all; }
-  .item--journal, .item--assignment { border: 0; box-shadow: none; padding: 0; }
+  .item--journal, .item--assignment, .item--activity { border: 0; box-shadow: none; padding: 0; }
   body.printing-one .item { display: none; }
   body.printing-one .item.print-target { display: block; }
 }
