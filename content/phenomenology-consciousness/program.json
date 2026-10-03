@@ -1,0 +1,458 @@
+{
+ "id": "phenomenology-consciousness",
+ "title": "Phenomenology for Consciousness Studies",
+ "href": "/programs/phenomenology-consciousness/",
+ "items": 366,
+ "lessons": 38,
+ "minutes": 3034,
+ "courses": [
+  {
+   "num": 1,
+   "title": "Husserl and the Foundations of Phenomenology",
+   "href": "/programs/phenomenology-consciousness/husserl-foundations/",
+   "items": 87,
+   "minutes": 727,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Phenomenology's Philosophical Roots",
+     "href": "/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Philosophical Roots: Descartes, Kant, and Experience",
+       "id": "c1.m1.l1",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Philosophical Roots: Brentano's Intentionality",
+       "id": "c1.m1.l2",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Philosophical Roots: Description vs. Explanation",
+       "id": "c1.m1.l3",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Husserl: Intentionality and Method",
+     "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Husserl's Method: Against Psychologism",
+       "id": "c1.m2.l1",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Husserl's Method: Epoché, Reduction, and Variation",
+       "id": "c1.m2.l2",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Husserl's Method: Noesis and Noema",
+       "id": "c1.m2.l3",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Husserl: Time, Body, and Lifeworld",
+     "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Time, Body, Lifeworld: Time-Consciousness",
+       "id": "c1.m3.l1",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Time, Body, Lifeworld: The Lived Body",
+       "id": "c1.m3.l2",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Time, Body, Lifeworld: Lifeworld and Others",
+       "id": "c1.m3.l3",
+       "href": "/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "Describe an Experience Phenomenologically",
+    "id": "c1.project",
+    "href": "/programs/phenomenology-consciousness/husserl-foundations/course-project/",
+    "items": 3
+   }
+  },
+  {
+   "num": 2,
+   "title": "The Existential Turn in Phenomenology",
+   "href": "/programs/phenomenology-consciousness/existential-turn/",
+   "items": 59,
+   "minutes": 508,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Heidegger: Being-in-the-World",
+     "href": "/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Being-in-the-World: The Question of Being",
+       "id": "c2.m1.l1",
+       "href": "/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Being-in-the-World: Ready-to-Hand and Present-at-Hand",
+       "id": "c2.m1.l2",
+       "href": "/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Being-in-the-World: Mood, Understanding, and Care",
+       "id": "c2.m1.l3",
+       "href": "/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Before Merleau-Ponty: Bergson to Beauvoir",
+     "href": "/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Bergson to Beauvoir: Bergson's Duration",
+       "id": "c2.m2.l1",
+       "href": "/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Bergson to Beauvoir: Gestalt and the Organism",
+       "id": "c2.m2.l2",
+       "href": "/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Bergson to Beauvoir: Sartre and Beauvoir on the Body",
+       "id": "c2.m2.l3",
+       "href": "/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "Analyze a Skilled Activity",
+    "id": "c2.project",
+    "href": "/programs/phenomenology-consciousness/existential-turn/course-project/",
+    "items": 3
+   }
+  },
+  {
+   "num": 3,
+   "title": "Merleau-Ponty and the Phenomenology of Embodiment",
+   "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/",
+   "items": 124,
+   "minutes": 1009,
+   "modules": [
+    {
+     "num": 1,
+     "title": "Merleau-Ponty: The Primacy of Perception",
+     "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Primacy of Perception: Beyond Empiricism and Intellectualism",
+       "id": "c3.m1.l1",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Primacy of Perception: The Perceptual Field",
+       "id": "c3.m1.l2",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Primacy of Perception: The Unfinished Reduction",
+       "id": "c3.m1.l3",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "Merleau-Ponty: The Body-Subject",
+     "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Body-Subject: Body Schema and Motor Intentionality",
+       "id": "c3.m2.l1",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Body-Subject: Phantom Limbs and the Schneider Case",
+       "id": "c3.m2.l2",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Body-Subject: Habit and Incorporation",
+       "id": "c3.m2.l3",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Merleau-Ponty: Others, Language, and Art",
+     "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Others, Language, Art: Intercorporeality",
+       "id": "c3.m3.l1",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Others, Language, Art: Speech as Gesture",
+       "id": "c3.m3.l2",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Others, Language, Art: Painting and Vision",
+       "id": "c3.m3.l3",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 4,
+       "title": "Others, Language, Art: Critical Phenomenology",
+       "id": "c3.m3.l4",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 4,
+     "title": "Late Merleau-Ponty: Flesh and Chiasm",
+     "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Flesh and Chiasm: The Self-Critique",
+       "id": "c3.m4.l1",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Flesh and Chiasm: Flesh, Reversibility, Chiasm",
+       "id": "c3.m4.l2",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Flesh and Chiasm: Subject, World, and Nature",
+       "id": "c3.m4.l3",
+       "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "The Body-Subject Essay",
+    "id": "c3.project",
+    "href": "/programs/phenomenology-consciousness/merleau-ponty-embodiment/course-project/",
+    "items": 3
+   }
+  },
+  {
+   "num": 4,
+   "title": "From Phenomenology to Consciousness Studies",
+   "href": "/programs/phenomenology-consciousness/consciousness-studies/",
+   "items": 96,
+   "minutes": 790,
+   "modules": [
+    {
+     "num": 1,
+     "title": "From Phenomenology to the Embodied Mind",
+     "href": "/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Embodied Mind: Dreyfus and the Critique of AI",
+       "id": "c4.m1.l1",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Embodied Mind: Enactivism and 4E Cognition",
+       "id": "c4.m1.l2",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Embodied Mind: Neurophenomenology",
+       "id": "c4.m1.l3",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 2,
+     "title": "The Hard Problem and Theories of Consciousness",
+     "href": "/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Hard Problem: The Explanatory Gap",
+       "id": "c4.m2.l1",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Hard Problem: Responses",
+       "id": "c4.m2.l2",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Hard Problem: Scientific Theories",
+       "id": "c4.m2.l3",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 4,
+       "title": "Hard Problem: Phenomenology's Contribution",
+       "id": "c4.m2.l4",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    },
+    {
+     "num": 3,
+     "title": "Experience and Science: The Blind Spot",
+     "href": "/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/",
+     "lessons": [
+      {
+       "num": 1,
+       "title": "Blind Spot: The Argument",
+       "id": "c4.m3.l1",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 2,
+       "title": "Blind Spot: Roots and Critics",
+       "id": "c4.m3.l2",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/",
+       "items": 9,
+       "minutes": 63
+      },
+      {
+       "num": 3,
+       "title": "Blind Spot: Forming Your Position",
+       "id": "c4.m3.l3",
+       "href": "/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/",
+       "items": 10,
+       "minutes": 93
+      }
+     ]
+    }
+   ],
+   "project": {
+    "title": "Consciousness Position Paper",
+    "id": "c4.project",
+    "href": "/programs/phenomenology-consciousness/consciousness-studies/course-project/",
+    "items": 3
+   }
+  }
+ ]
+}

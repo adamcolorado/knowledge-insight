@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-label="Knowledge InSight">
+  <title>Knowledge InSight</title>
+  <g color="#2F75B3">
+    <circle cx="48" cy="48" r="36" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M48 39 C 40.5 33.5, 30.5 32.3, 21 33.5 L 21 56 C 30.5 54.8, 40.5 56, 48 61.5 Z"
+          fill="currentColor" fill-opacity=".14" stroke="currentColor"
+          stroke-width="2.8" stroke-linejoin="round"/>
+    <path d="M48 39 C 55.5 33.5, 65.5 32.3, 75 33.5 L 75 56 C 65.5 54.8, 55.5 56, 48 61.5 Z"
+          fill="currentColor" fill-opacity=".14" stroke="currentColor"
+          stroke-width="2.8" stroke-linejoin="round"/>
+    <line x1="48" y1="39" x2="48" y2="61.5" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+  <text x="102" y="43" font-family="Avenir Next, Avenir, Segoe UI, Helvetica Neue, Arial, sans-serif"
+        font-size="34" font-weight="300" letter-spacing="0.6" fill="#275F92">Knowledge</text>
+  <text x="102" y="79" font-family="Avenir Next, Avenir, Segoe UI, Helvetica Neue, Arial, sans-serif"
+        font-size="34" font-weight="300" letter-spacing="0.6" fill="#275F92">InSight</text>
+</svg>

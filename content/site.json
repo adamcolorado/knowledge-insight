@@ -1,0 +1,128 @@
+{
+  "org": "Knowledge InSight",
+  "domain": "knowledgeinsight.org",
+  "tagline": "We facilitate self-paced learning for knowledge seekers.",
+  "splashHeadline": "Open learning, built with care.",
+  "splashLede": "Knowledge InSight publishes free, self-paced programs for curious minds. Every program is designed end to end: sequenced readings, guided conversation with an AI assistant, reflective writing, and self-scored checks you can take as often as you like.",
+  "about": [
+    "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we bring the structure, the sequence, and the good questions.",
+    "Our programs are open access and self-paced. Nothing is graded by a person or by an AI. Quizzes score themselves and can be retaken without limit. Written work stays with you, in your own notebook or document; we never collect it.",
+    "Each program is organized as a small number of courses, each course as modules, and each module as lessons. A lesson is one sitting. The structure repeats so you can settle into it and spend your attention on the material instead of the interface."
+  ],
+  "aboutAside": "The phenomenology program grew out of Adam's own research interests in phenomenology and consciousness, which is why it came first.",
+  "progressHeading": "How to progress through a program",
+  "progressLede": "Every lesson has the same shape, so you can settle into it and spend your attention on the material.",
+  "principles": [
+    {
+      "title": "Read first",
+      "body": "Ideas arrive as prose you can argue with, not as bullet points. Primary texts are named, linked where they are free, and never paraphrased away."
+    },
+    {
+      "title": "Think out loud",
+      "body": "Each lesson includes a Guided Conversation you run in your own AI account. The prompt is written to ask, not to tell, and to correct the misreadings the material invites."
+    },
+    {
+      "title": "Check yourself",
+      "body": "Knowledge checks are ungraded and unlimited. Every option carries its own feedback, so a wrong answer teaches you something specific."
+    },
+    {
+      "title": "Keep your work",
+      "body": "Journals and course projects are yours. There is no upload, no submission, and no account. Your progress is remembered by your browser alone."
+    }
+  ],
+  "ai": {
+    "heading": "AI in education",
+    "intro": [
+      "Our programs are developed with the help of generative AI, and we would rather tell you exactly how than leave you guessing.",
+      "A learning designer works iteratively with an AI assistant to design the program structure, the course outlines, and the learning objectives. Once that scaffolding is settled, the designer uses AI to draft the learning content against those outlines. Every reading names its sources and links to them wherever they are freely available, so you can go to the original instead of taking a summary on trust. That is the point of the links: not decoration, but a standing invitation to check the work."
+    ],
+    "vetting": [
+      "A <strong>fully vetted</strong> program has completed human-in-the-loop review: a subject-matter expert has validated every learning item and every source in it.",
+      "An <strong>in-progress</strong> program is published while that review is still underway. We release early because the material is useful early, and because readers catch things that reviewers miss. Every page of an in-progress program says so, and tells you how to report what you find."
+    ],
+    "conversations": [
+      "We also leverage AI to help facilitate your learning journey. Each Guided Conversation is a prompt written and reviewed by the learning designer. It tells the assistant to ask rather than lecture, to keep its turns short, to treat your observations as evidence, and to correct a specific list of misreadings that the material tends to invite.",
+      "You run it in your own account, so the conversation belongs to you. We never see it. You can open the same prompt in Claude, ChatGPT, or another LLM of your choice.",
+      "Nothing in a Guided Conversation is graded or recorded. If the assistant says something that contradicts the readings, trust the readings and tell us. Remember that the LLM model you use will impact the quality of the conversation."
+    ]
+  },
+  "bio": {
+    "name": "Adam Hodges, Ph.D.",
+    "image": "/assets/img/adam-h.jpg",
+    "alt": "Adam Hodges",
+    "text": "Knowledge InSight is an experimental project developed by Adam Hodges, a scholar, professor and learning design consultant with over two decades of experience in higher education — including several years working internationally to develop and deliver American university curriculum to a global audience."
+  },
+  "statuses": {
+    "vetted": {
+      "label": "Fully vetted",
+      "short": "Vetted",
+      "blurb": "A subject-matter expert has reviewed and validated every learning item and source in this program."
+    },
+    "in-progress": {
+      "label": "Vetting in progress",
+      "short": "In progress",
+      "blurb": "This program is published while expert review is still underway. The content is complete and the sources are linked, but it has not yet been validated end to end.",
+      "helpHeading": "Help us vet this program",
+      "helpLede": "You are reading it closely anyway. If something looks wrong, telling us is the fastest way to fix it.",
+      "helpPoints": [
+        "<strong>Check claims against the linked sources.</strong> Every reading names where its ideas come from. If a passage misstates a source, or attributes something to the wrong thinker, say so and point to the item.",
+        "<strong>Report broken or wrong links.</strong> Free editions move and paywalls change. A dead link is worth reporting even when the text around it is fine.",
+        "<strong>Flag quiz questions that do not hold up.</strong> An answer you can defend that is marked wrong, an option with no good answer, or feedback that misses the point.",
+        "<strong>Suggest improvements.</strong> A passage that reads as muddled, an example that would land better, a primary text we should have pointed you to."
+      ],
+      "feedbackUrl": "",
+      "feedbackPageField": "",
+      "feedbackTitleField": "",
+      "feedbackLabel": "Report an issue or suggest an improvement",
+      "feedbackPending": "The feedback form is not connected yet. Until it is, send anything you find to the project maintainer."
+    }
+  },
+  "programs": [
+    {
+      "id": "phenomenology-consciousness",
+      "title": "Phenomenology for Consciousness Studies",
+      "subtitle": "Trace phenomenology from Husserl to Merleau-Ponty and apply it to today's consciousness debates.",
+      "summary": "An open-access, self-paced program running from Husserl through Heidegger and Merleau-Ponty to current consciousness studies.",
+      "status": "in-progress",
+      "description": "Phenomenology began as a demand: go back to the things themselves, and describe experience as it is actually given rather than as our theories say it must be. This program follows that demand from Husserl's founding method through Heidegger's and Merleau-Ponty's existential and embodied revisions, and into the consciousness research that now draws on all three.\n\nYou will work through intentionality, the epoche and reduction, time-consciousness, being-in-the-world, the body-subject, and the hard problem, and you will finish each course by writing something of your own: a phenomenological description, an analysis of a skilled activity, an essay on the body-subject, and a position paper on consciousness.",
+      "audience": "Curious readers at advanced undergraduate level and beyond, comfortable following an argument across a long text. No prior study of phenomenology or Kant is assumed.",
+      "level": "Advanced",
+      "format": "Text-based, self-paced",
+      "outcomes": [
+        "Describe an experience phenomenologically, using the epoche, eidetic variation, and the noesis-noema structure",
+        "Trace how Heidegger and Merleau-Ponty reworked Husserl's project and what each change cost and gained",
+        "Analyze skilled, embodied activity in the vocabulary of being-in-the-world and the body-subject",
+        "Position yourself in current debates on consciousness, from the hard problem to enactive and predictive accounts"
+      ],
+      "sourceFiles": [
+        {
+          "course": 1,
+          "slug": "husserl-foundations",
+          "website": "(website) Course 1. Husserl and the Foundations of Phenomenology.md",
+          "prompts": "Course 1 Dialogue Prompts.md"
+        },
+        {
+          "course": 2,
+          "slug": "existential-turn",
+          "website": "(website) Course 2. The Existential Turn in Phenomenology.md",
+          "prompts": "Course 2 Dialogue Prompts.md"
+        },
+        {
+          "course": 3,
+          "slug": "merleau-ponty-embodiment",
+          "website": "(website) Course 3. Merleau-Ponty and the Phenomenology of Embodiment.md",
+          "prompts": "Course 3 Dialogue Prompts.md"
+        },
+        {
+          "course": 4,
+          "slug": "consciousness-studies",
+          "website": "(website) Course 4. From Phenomenology to Consciousness Studies.md",
+          "prompts": "Course 4 Dialogue Prompts.md"
+        }
+      ]
+    }
+  ],
+  "placeholderCards": 2,
+  "placeholderText": "Another program is on the way.",
+  "placeholderSub": "We are building more programs for curious minds. This space will fill in as they are ready."
+}
