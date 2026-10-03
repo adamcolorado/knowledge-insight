@@ -8,7 +8,7 @@
   "splashLede": "Knowledge InSight publishes free, self-paced programs for curious minds. Every program is designed end to end: sequenced readings, guided conversation with an AI assistant, reflective writing, and self-scored checks you can take as often as you like.",
   "about": [
     "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we bring the structure, the sequence, and the guiding questions.",
-    "Our programs are open access and self-paced. Nothing is graded by a person or by an AI. Quizzes score themselves and can be retaken without limit. Written work stays with you, in your own notebook or document; we never collect it.",
+    "Our programs are open access and self-paced. Nothing is graded. Quizzes score themselves and can be retaken without limit. Written work stays with you, in your own notebook or document; we never collect it.",
     "Each program is organized as a small number of courses, each course as modules, and each module as lessons. A lesson is one sitting. The structure repeats so you can settle into it and spend your attention on the material instead of the interface."
   ],
   "aboutAside": "When it comes to AI in education, I view myself as a critical optimist — someone who remains enthusiastic about the potential of AI, yet alert to the many difficult questions it raises. This project explores AI's positive potential with a focus on quality, starting with topics I'm currently interested in myself.",
@@ -17,19 +17,19 @@
   "principles": [
     {
       "title": "Read first",
-      "body": "Ideas arrive as prose you can argue with, not as bullet points. Primary texts are named, linked where they are free, and never paraphrased away."
+      "body": "Ideas arrive as prose you can engage with, not as bullet points. Sources are named, noted where they are free to access, and linked for you to explore."
     },
     {
       "title": "Think out loud",
-      "body": "Each lesson includes a Guided Conversation you run in your own AI account. The prompt is written to ask, not to tell, and to correct the misreadings the material invites."
+      "body": "AI-driven Guided Conversations run in your own AI account. Prompts are written to ask, not to tell, and to correct misreadings while guiding your understanding."
     },
     {
       "title": "Check yourself",
-      "body": "Knowledge checks are ungraded and unlimited. Every option carries its own feedback, so a wrong answer teaches you something specific."
+      "body": "Knowledge checks are ungraded and unlimited. Every option carries its own feedback, so a wrong answer teaches you something specific as you progress in your understanding."
     },
     {
       "title": "Keep your work",
-      "body": "Journals and course projects are yours. There is no upload, no submission, and no account. Your progress is remembered by your browser alone."
+      "body": "Journals, activities, and course projects are yours. There is no upload, no submission, and no account. Your progress is remembered by your browser alone."
     }
   ],
   "ai": {
