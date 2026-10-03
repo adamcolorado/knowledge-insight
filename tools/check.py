@@ -168,6 +168,20 @@ def main():
         if not data.get("forms") or not data["forms"][0]:
             problems.append("%s has no questions" % ref)
 
+    # Every location id a feedback link can send must resolve in locations.csv,
+    # or the report arrives in the sheet with no title against it.
+    import csv as _csv
+    for csv_path in ROOT.glob("content/*/locations.csv"):
+        known = {row[0] for row in _csv.reader(csv_path.open(encoding="utf-8"))}
+        emitted = set()
+        for page in pages:
+            emitted |= set(re.findall(r'data-loc="([^"]+)"',
+                                      page.read_text(encoding="utf-8")))
+        orphans = sorted(emitted - known)
+        if orphans:
+            problems.append("%s: %d location id(s) with no row, e.g. %s"
+                            % (csv_path.name, len(orphans), ", ".join(orphans[:3])))
+
     print("checked %d pages, %d links, %d quiz payloads" % (len(pages), checked_links, len(quiz_refs)))
     if problems:
         print("%d problem(s):" % len(problems))

@@ -1,4 +1,7 @@
 id,course,module,lesson,item,type,title,url
+c1,1,,,,course,Husserl and the Foundations of Phenomenology,/programs/phenomenology-consciousness/husserl-foundations/
+c1.m1,1,1,,,module,Phenomenology's Philosophical Roots,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/
+c1.m1.l1,1,1,1,,lesson,"Philosophical Roots: Descartes, Kant, and Experience",/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/
 c1.m1.l1.i1,1,1,1,1,reading,How Descartes's Doubt Still Frames Consciousness Research,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-1
 c1.m1.l1.i2,1,1,1,2,reading,"Descartes on Doubt, the Cogito, and Perception as Judgment",/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-2
 c1.m1.l1.i3,1,1,1,3,reading,"Kant's Copernican Turn: Forms of Intuition, Categories, and Phenomena",/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-3
@@ -8,6 +11,7 @@ c1.m1.l1.i6,1,1,1,6,reading,Guided Close Reading: Descartes's Wax Argument in Me
 c1.m1.l1.i7,1,1,1,7,dialogue,Test Doubt Against Experience,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-7
 c1.m1.l1.i8,1,1,1,8,journal,Journal Entry on Doubt and Appearance,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-8
 c1.m1.l1.i9,1,1,1,9,knowledge-check,"Descartes, Kant, and Experience",/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/descartes-kant-and-experience/#item-9
+c1.m1.l2,1,1,2,,lesson,Philosophical Roots: Brentano's Intentionality,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/
 c1.m1.l2.i1,1,1,2,1,reading,Brentano's Intentionality and the Puzzle of Aboutness in Current Research,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-1
 c1.m1.l2.i2,1,1,2,2,reading,Brentano's Intentional Inexistence and His Three Classes of Mental Acts,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-2
 c1.m1.l2.i3,1,1,2,3,reading,Intentionality as the Mark of the Mental: Brentano's Thesis and Its Challenges,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-3
@@ -17,6 +21,7 @@ c1.m1.l2.i6,1,1,2,6,reading,Guided Close Reading: Brentano's Intentional Inexist
 c1.m1.l2.i7,1,1,2,7,dialogue,Map the Aboutness of Your Experience,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-7
 c1.m1.l2.i8,1,1,2,8,journal,Journal Entry on Intentionality,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-8
 c1.m1.l2.i9,1,1,2,9,knowledge-check,Brentano's Intentionality,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/brentanos-intentionality/#item-9
+c1.m1.l3,1,1,3,,lesson,Philosophical Roots: Description vs. Explanation,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/
 c1.m1.l3.i1,1,1,3,1,reading,First-Person Reports in Consciousness Research: Imageless Thought and Introspective Reliability,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-1
 c1.m1.l3.i2,1,1,3,2,reading,"Wundt, Titchener, and the Imageless-Thought Controversy in Introspective Psychology",/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-2
 c1.m1.l3.i3,1,1,3,3,reading,Causal Explanation vs. Phenomenological Description: Hearing a Melody Three Ways,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-3
@@ -27,6 +32,8 @@ c1.m1.l3.i7,1,1,3,7,dialogue,Sort Your Claims About Experience,/programs/phenome
 c1.m1.l3.i8,1,1,3,8,journal,Journal Entry on Describing Experience,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-8
 c1.m1.l3.i9,1,1,3,9,knowledge-check,Description vs. Explanation,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-9
 c1.m1.l3.i10,1,1,3,10,graded-quiz,Phenomenology's Philosophical Roots,/programs/phenomenology-consciousness/husserl-foundations/phenomenologys-philosophical-roots/description-vs-explanation/#item-10
+c1.m2,1,2,,,module,Husserl: Intentionality and Method,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/
+c1.m2.l1,1,2,1,,lesson,Husserl's Method: Against Psychologism,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/
 c1.m2.l1.i1,1,2,1,1,reading,Husserl's Critique of Psychologism and Current Debates About Naturalizing Logic,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-1
 c1.m2.l1.i2,1,2,1,2,reading,Psychologism and Husserl's Arguments Against It in the Prolegomena,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-2
 c1.m2.l1.i3,1,2,1,3,reading,"Husserl's Philosophy of Arithmetic, Frege's Review, and the Return to the Things Themselves",/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-3
@@ -36,6 +43,7 @@ c1.m2.l1.i6,1,2,1,6,reading,Guided Close Reading: The Principle of All Principle
 c1.m2.l1.i7,1,2,1,7,dialogue,Separate the Thought From the Thinking,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-7
 c1.m2.l1.i8,1,2,1,8,journal,Journal Entry on Psychologism and Givenness,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-8
 c1.m2.l1.i9,1,2,1,9,knowledge-check,Against Psychologism,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/against-psychologism/#item-9
+c1.m2.l2,1,2,2,,lesson,"Husserl's Method: Epoché, Reduction, and Variation",/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/
 c1.m2.l2.i1,1,2,2,1,reading,Husserl's Epoché and Suspending Assumptions in First-Person Research Methods,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-1
 c1.m2.l2.i2,1,2,2,2,reading,"The Natural Attitude, the General Thesis, and the Epoché in Ideas I",/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-2
 c1.m2.l2.i3,1,2,2,3,reading,Husserl's Phenomenological Reduction and His Turn to Transcendental Idealism,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-3
@@ -45,6 +53,7 @@ c1.m2.l2.i6,1,2,2,6,reading,Guided Walkthrough: An Epoché and Free Variation on
 c1.m2.l2.i7,1,2,2,7,dialogue,Practice the Epoché,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-7
 c1.m2.l2.i8,1,2,2,8,journal,Journal Entry on the Epoché,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-8
 c1.m2.l2.i9,1,2,2,9,knowledge-check,"Epoché, Reduction, and Variation",/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/epoche-reduction-and-variation/#item-9
+c1.m2.l3,1,2,3,,lesson,Husserl's Method: Noesis and Noema,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/
 c1.m2.l3.i1,1,2,3,1,reading,Husserl's Noesis and Noema and the Structure of Mental States,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-1
 c1.m2.l3.i2,1,2,3,2,reading,"Act Quality, Act Matter, and Perception Through Adumbrations",/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-2
 c1.m2.l3.i3,1,2,3,3,reading,Noesis and Noema in Ideas I: The Act of Meaning and the Object as Meant,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-3
@@ -55,6 +64,8 @@ c1.m2.l3.i7,1,2,3,7,dialogue,"Analyze One Object, Three Ways",/programs/phenomen
 c1.m2.l3.i8,1,2,3,8,journal,Journal Entry on Noesis and Noema,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-8
 c1.m2.l3.i9,1,2,3,9,knowledge-check,Noesis and Noema,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-9
 c1.m2.l3.i10,1,2,3,10,graded-quiz,Husserl: Intentionality and Method,/programs/phenomenology-consciousness/husserl-foundations/husserl-intentionality-and-method/noesis-and-noema/#item-10
+c1.m3,1,3,,,module,"Husserl: Time, Body, and Lifeworld",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/
+c1.m3.l1,1,3,1,,lesson,"Time, Body, Lifeworld: Time-Consciousness",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/
 c1.m3.l1.i1,1,3,1,1,reading,The Melody Puzzle and Husserl's Analysis of Time-Consciousness,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-1
 c1.m3.l1.i2,1,3,1,2,reading,"Primal Impression, Retention, and Protention in Husserl's Time Lectures",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-2
 c1.m3.l1.i3,1,3,1,3,reading,Retention vs. Recollection: Primary and Secondary Memory in Husserl,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-3
@@ -64,6 +75,7 @@ c1.m3.l1.i6,1,3,1,6,reading,"Guided Close Reading: Husserl's Melody Analysis in 
 c1.m3.l1.i7,1,3,1,7,dialogue,Listen to Time,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-7
 c1.m3.l1.i8,1,3,1,8,journal,Journal Entry on Time-Consciousness,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-8
 c1.m3.l1.i9,1,3,1,9,knowledge-check,Time-Consciousness,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/time-consciousness/#item-9
+c1.m3.l2,1,3,2,,lesson,"Time, Body, Lifeworld: The Lived Body",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/
 c1.m3.l2.i1,1,3,2,1,reading,The Lived Body vs. the Body as Object in Embodied Cognition,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-1
 c1.m3.l2.i2,1,3,2,2,reading,Leib and Körper: Husserl on the Lived Body and Localized Sensings,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-2
 c1.m3.l2.i3,1,3,2,3,reading,The Body as Zero Point of Orientation and Organ of the Will,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-3
@@ -73,6 +85,7 @@ c1.m3.l2.i6,1,3,2,6,reading,Guided Close Reading: One Hand Touching the Other in
 c1.m3.l2.i7,1,3,2,7,dialogue,Explore Your Lived Body,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-7
 c1.m3.l2.i8,1,3,2,8,journal,Journal Entry on the Lived Body,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-8
 c1.m3.l2.i9,1,3,2,9,knowledge-check,The Lived Body,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/the-lived-body/#item-9
+c1.m3.l3,1,3,3,,lesson,"Time, Body, Lifeworld: Lifeworld and Others",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/
 c1.m3.l3.i1,1,3,3,1,reading,The Lifeworld Beneath Science: Husserl's Crisis and the Blind Spot Debate,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-1
 c1.m3.l3.i2,1,3,3,2,reading,Husserl's Crisis and Galileo's Mathematization of Nature,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-2
 c1.m3.l3.i3,1,3,3,3,reading,"The Garb of Ideas, the Surreptitious Substitution, and the Lifeworld",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-3
@@ -83,9 +96,13 @@ c1.m3.l3.i7,1,3,3,7,dialogue,Find the Lifeworld Beneath the Science,/programs/ph
 c1.m3.l3.i8,1,3,3,8,journal,Journal Entry on the Lifeworld,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-8
 c1.m3.l3.i9,1,3,3,9,knowledge-check,Lifeworld and Others,/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-9
 c1.m3.l3.i10,1,3,3,10,graded-quiz,"Husserl: Time, Body, and Lifeworld",/programs/phenomenology-consciousness/husserl-foundations/husserl-time-body-and-lifeworld/lifeworld-and-others/#item-10
+c1.project,1,,project,,project,Describe an Experience Phenomenologically,/programs/phenomenology-consciousness/husserl-foundations/course-project/
 c1.project.i1,1,,project,1,reading,Rigorous First-Person Description as a Research Skill,/programs/phenomenology-consciousness/husserl-foundations/course-project/#item-1
 c1.project.i2,1,,project,2,reading,Project Requirements and Instructions,/programs/phenomenology-consciousness/husserl-foundations/course-project/#item-2
 c1.project.i3,1,,project,3,assignment,Describe an Experience Phenomenologically,/programs/phenomenology-consciousness/husserl-foundations/course-project/#item-3
+c2,2,,,,course,The Existential Turn in Phenomenology,/programs/phenomenology-consciousness/existential-turn/
+c2.m1,2,1,,,module,Heidegger: Being-in-the-World,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/
+c2.m1.l1,2,1,1,,lesson,Being-in-the-World: The Question of Being,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/
 c2.m1.l1.i1,2,1,1,1,reading,Heidegger's Question of Being and the Default Ontology of Mind Research,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-1
 c2.m1.l1.i2,2,1,1,2,reading,The Question of Being and the Ontological Difference in Being and Time,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-2
 c2.m1.l1.i3,2,1,1,3,reading,"Dasein, Being-in-the-World, and Heidegger's Break with Husserl",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-3
@@ -95,6 +112,7 @@ c2.m1.l1.i6,2,1,1,6,reading,Guided Close Reading: Phenomenon and Logos in Heideg
 c2.m1.l1.i7,2,1,1,7,dialogue,Before You Were a Subject,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-7
 c2.m1.l1.i8,2,1,1,8,journal,Journal Entry on Dasein,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-8
 c2.m1.l1.i9,2,1,1,9,knowledge-check,The Question of Being,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/the-question-of-being/#item-9
+c2.m1.l2,2,1,2,,lesson,Being-in-the-World: Ready-to-Hand and Present-at-Hand,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/
 c2.m1.l2.i1,2,1,2,1,reading,"Absorbed Skill, Breakdown, and Dreyfus's Heideggerian Critique of AI",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-1
 c2.m1.l2.i2,2,1,2,2,reading,"Equipment, the In-Order-To, and Readiness-to-Hand in Being and Time",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-2
 c2.m1.l2.i3,2,1,2,3,reading,"Breakdown and Presence-at-Hand: Conspicuousness, Obtrusiveness, and Obstinacy",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-3
@@ -104,6 +122,7 @@ c2.m1.l2.i6,2,1,2,6,reading,"Guided Close Reading: The Hammer, Circumspection, a
 c2.m1.l2.i7,2,1,2,7,dialogue,Analyze Your Own Tools,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-7
 c2.m1.l2.i8,2,1,2,8,journal,Journal Entry on Tools and Breakdown,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-8
 c2.m1.l2.i9,2,1,2,9,knowledge-check,Ready-to-Hand and Present-at-Hand,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/ready-to-hand-and-present-at-hand/#item-9
+c2.m1.l3,2,1,3,,lesson,"Being-in-the-World: Mood, Understanding, and Care",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/
 c2.m1.l3.i1,2,1,3,1,reading,Moods as World-Disclosing: Heidegger and Ratcliffe's Existential Feelings,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-1
 c2.m1.l3.i2,2,1,3,2,reading,"Attunement, Thrownness, Fear, and Anxiety in Being and Time",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-2
 c2.m1.l3.i3,2,1,3,3,reading,Understanding as Projection and the Structure of Care in Being and Time,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-3
@@ -114,6 +133,8 @@ c2.m1.l3.i7,2,1,3,7,dialogue,How Your Mood Shapes Your World,/programs/phenomeno
 c2.m1.l3.i8,2,1,3,8,journal,Journal Entry on Mood and Care,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-8
 c2.m1.l3.i9,2,1,3,9,knowledge-check,"Mood, Understanding, and Care",/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-9
 c2.m1.l3.i10,2,1,3,10,graded-quiz,Heidegger: Being-in-the-World,/programs/phenomenology-consciousness/existential-turn/heidegger-being-in-the-world/mood-understanding-and-care/#item-10
+c2.m2,2,2,,,module,Before Merleau-Ponty: Bergson to Beauvoir,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/
+c2.m2.l1,2,2,1,,lesson,Bergson to Beauvoir: Bergson's Duration,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/
 c2.m2.l1.i1,2,2,1,1,reading,"Lived Time and Clock Time: Bergson, Einstein, and Measuring Experience",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-1
 c2.m2.l1.i2,2,2,1,2,reading,Quantitative and Qualitative Multiplicity in Bergson's Time and Free Will,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-2
 c2.m2.l1.i3,2,2,1,3,reading,"Duration, Spatialized Time, and Free Acts in Bergson's Time and Free Will",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-3
@@ -123,6 +144,7 @@ c2.m2.l1.i6,2,2,1,6,reading,"Guided Close Reading: Bergson's Melody and Clock Pa
 c2.m2.l1.i7,2,2,1,7,dialogue,Duration in Your Day,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-7
 c2.m2.l1.i8,2,2,1,8,journal,Journal Entry on Duration,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-8
 c2.m2.l1.i9,2,2,1,9,knowledge-check,Bergson's Duration,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/bergsons-duration/#item-9
+c2.m2.l2,2,2,2,,lesson,Bergson to Beauvoir: Gestalt and the Organism,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/
 c2.m2.l2.i1,2,2,2,1,reading,Perceptual Wholes and Element-First Models: A Century of Gestalt Psychology,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-1
 c2.m2.l2.i2,2,2,2,2,reading,"Elementism, the Constancy Hypothesis, and Wertheimer's Phi Phenomenon",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-2
 c2.m2.l2.i3,2,2,2,3,reading,"Figure–Ground, Grouping Principles, and the Organized Perceptual Field",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-3
@@ -132,6 +154,7 @@ c2.m2.l2.i6,2,2,2,6,reading,Guided Walkthrough: Reading the Gelb–Goldstein Sch
 c2.m2.l2.i7,2,2,2,7,dialogue,"Figure, Ground, and Your Perceptual Field",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-7
 c2.m2.l2.i8,2,2,2,8,journal,Journal Entry on Perceptual Wholes,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-8
 c2.m2.l2.i9,2,2,2,9,knowledge-check,Gestalt and the Organism,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/gestalt-and-the-organism/#item-9
+c2.m2.l3,2,2,3,,lesson,Bergson to Beauvoir: Sartre and Beauvoir on the Body,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/
 c2.m2.l3.i1,2,2,3,1,reading,"Being Seen: Shame, Self-Consciousness, and the Socially Situated Body",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-1
 c2.m2.l3.i2,2,2,3,2,reading,"Sartre's Non-Egological Consciousness, the For-Itself, and the In-Itself",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-2
 c2.m2.l3.i3,2,2,3,3,reading,"Sartre on the Look, Shame, and the Three Dimensions of the Body",/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-3
@@ -142,9 +165,13 @@ c2.m2.l3.i7,2,2,3,7,dialogue,Your Body Under the Look,/programs/phenomenology-co
 c2.m2.l3.i8,2,2,3,8,journal,Journal Entry on the Body and the Other,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-8
 c2.m2.l3.i9,2,2,3,9,knowledge-check,Sartre and Beauvoir on the Body,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-9
 c2.m2.l3.i10,2,2,3,10,graded-quiz,Before Merleau-Ponty: Bergson to Beauvoir,/programs/phenomenology-consciousness/existential-turn/before-merleau-ponty-bergson-to-beauvoir/sartre-and-beauvoir-on-the-body/#item-10
+c2.project,2,,project,,project,Analyze a Skilled Activity,/programs/phenomenology-consciousness/existential-turn/course-project/
 c2.project.i1,2,,project,1,reading,"Skill, Rules, and First-Person Analysis in Expertise Research",/programs/phenomenology-consciousness/existential-turn/course-project/#item-1
 c2.project.i2,2,,project,2,reading,Project Requirements and Instructions,/programs/phenomenology-consciousness/existential-turn/course-project/#item-2
 c2.project.i3,2,,project,3,assignment,Analyze a Skilled Activity,/programs/phenomenology-consciousness/existential-turn/course-project/#item-3
+c3,3,,,,course,Merleau-Ponty and the Phenomenology of Embodiment,/programs/phenomenology-consciousness/merleau-ponty-embodiment/
+c3.m1,3,1,,,module,Merleau-Ponty: The Primacy of Perception,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/
+c3.m1.l1,3,1,1,,lesson,Primacy of Perception: Beyond Empiricism and Intellectualism,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/
 c3.m1.l1.i1,3,1,1,1,reading,"Bottom-Up, Top-Down, and Merleau-Ponty's Critique of Both",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-1
 c3.m1.l1.i2,3,1,1,2,reading,Sensation and Association: Merleau-Ponty's Critique of Empiricism,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-2
 c3.m1.l1.i3,3,1,1,3,reading,"Attention, Judgment, and the Prejudice of the World",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-3
@@ -154,6 +181,7 @@ c3.m1.l1.i6,3,1,1,6,reading,Guided Close Reading: The Müller-Lyer Illusion in P
 c3.m1.l1.i7,3,1,1,7,dialogue,Catch Your Own Prejudices,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-7
 c3.m1.l1.i8,3,1,1,8,journal,Journal Entry on Perception's Prejudices,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-8
 c3.m1.l1.i9,3,1,1,9,knowledge-check,Beyond Empiricism and Intellectualism,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/beyond-empiricism-and-intellectualism/#item-9
+c3.m1.l2,3,1,2,,lesson,Primacy of Perception: The Perceptual Field,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/
 c3.m1.l2.i1,3,1,2,1,reading,Perceptual Constancy: Unconscious Inference or Perceptual Organization?,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-1
 c3.m1.l2.i2,3,1,2,2,reading,"Figure, Ground, and the Perceptual Field in Merleau-Ponty",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-2
 c3.m1.l2.i3,3,1,2,3,reading,Horizons and Motivation in Merleau-Ponty's Perceptual Field,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-3
@@ -163,6 +191,7 @@ c3.m1.l2.i6,3,1,2,6,reading,"Guided Close Reading: Lighting as a Level in ""The 
 c3.m1.l2.i7,3,1,2,7,dialogue,Map Your Perceptual Field,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-7
 c3.m1.l2.i8,3,1,2,8,journal,Journal Entry on the Perceptual Field,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-8
 c3.m1.l2.i9,3,1,2,9,knowledge-check,The Perceptual Field,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-perceptual-field/#item-9
+c3.m1.l3,3,1,3,,lesson,Primacy of Perception: The Unfinished Reduction,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/
 c3.m1.l3.i1,3,1,3,1,reading,The Incomplete Reduction and the Limits of First-Person Method,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-1
 c3.m1.l3.i2,3,1,3,2,reading,Description and the Reduction in Merleau-Ponty's Preface,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-2
 c3.m1.l3.i3,3,1,3,3,reading,Essences and Operative Intentionality in Merleau-Ponty's Preface,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-3
@@ -173,6 +202,8 @@ c3.m1.l3.i7,3,1,3,7,dialogue,Test the Limits of the Reduction,/programs/phenomen
 c3.m1.l3.i8,3,1,3,8,journal,Journal Entry on the Unfinished Reduction,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-8
 c3.m1.l3.i9,3,1,3,9,knowledge-check,The Unfinished Reduction,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-9
 c3.m1.l3.i10,3,1,3,10,graded-quiz,Merleau-Ponty: The Primacy of Perception,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-primacy-of-perception/the-unfinished-reduction/#item-10
+c3.m2,3,2,,,module,Merleau-Ponty: The Body-Subject,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/
+c3.m2.l1,3,2,1,,lesson,Body-Subject: Body Schema and Motor Intentionality,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/
 c3.m2.l1.i1,3,2,1,1,reading,The Body Schema and Pre-Reflective Bodily Knowledge in Current Research,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-1
 c3.m2.l1.i2,3,2,1,2,reading,The Body as Object and One's Own Body in Merleau-Ponty,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-2
 c3.m2.l1.i3,3,2,1,3,reading,"Body Schema, Spatiality of Situation, and Motor Intentionality",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-3
@@ -182,6 +213,7 @@ c3.m2.l1.i6,3,2,1,6,reading,Guided Close Reading: Spatiality of Situation in Phe
 c3.m2.l1.i7,3,2,1,7,dialogue,What Your Body Knows,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-7
 c3.m2.l1.i8,3,2,1,8,journal,Journal Entry on the Body Schema,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-8
 c3.m2.l1.i9,3,2,1,9,knowledge-check,Body Schema and Motor Intentionality,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/body-schema-and-motor-intentionality/#item-9
+c3.m2.l2,3,2,2,,lesson,Body-Subject: Phantom Limbs and the Schneider Case,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/
 c3.m2.l2.i1,3,2,2,1,reading,"Phantom Limbs, Mirror Therapy, and the Limits of Physical and Mental Explanation",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-1
 c3.m2.l2.i2,3,2,2,2,reading,"Phantom Limbs, Anosognosia, and the Failure of Physiological and Psychological Accounts",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-2
 c3.m2.l2.i3,3,2,2,3,reading,The Habitual Body and the Body at This Moment,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-3
@@ -191,6 +223,7 @@ c3.m2.l2.i6,3,2,2,6,reading,Guided Close Reading: The Intentional Arc in Phenome
 c3.m2.l2.i7,3,2,2,7,dialogue,Grasping vs. Pointing,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-7
 c3.m2.l2.i8,3,2,2,8,journal,Journal Entry on Clinical Cases,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-8
 c3.m2.l2.i9,3,2,2,9,knowledge-check,Phantom Limbs and the Schneider Case,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/phantom-limbs-and-the-schneider-case/#item-9
+c3.m2.l3,3,2,3,,lesson,Body-Subject: Habit and Incorporation,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/
 c3.m2.l3.i1,3,2,3,1,reading,"Tool Incorporation, Body Representation, and the Extended Body",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-1
 c3.m2.l3.i2,3,2,3,2,reading,Habit as Motor Knowledge: The Feathered Hat and the Car,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-2
 c3.m2.l3.i3,3,2,3,3,reading,The Typist and the Organist: Habit as Rearranging the Body Schema,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-3
@@ -201,6 +234,8 @@ c3.m2.l3.i7,3,2,3,7,dialogue,Your Incorporated Tools,/programs/phenomenology-con
 c3.m2.l3.i8,3,2,3,8,journal,Journal Entry on Habit and Incorporation,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-8
 c3.m2.l3.i9,3,2,3,9,knowledge-check,Habit and Incorporation,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-9
 c3.m2.l3.i10,3,2,3,10,graded-quiz,Merleau-Ponty: The Body-Subject,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-the-body-subject/habit-and-incorporation/#item-10
+c3.m3,3,3,,,module,"Merleau-Ponty: Others, Language, and Art",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/
+c3.m3.l1,3,3,1,,lesson,"Others, Language, Art: Intercorporeality",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/
 c3.m3.l1.i1,3,3,1,1,reading,"Inference, Simulation, and Direct Perception in Social Cognition",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-1
 c3.m3.l1.i2,3,3,1,2,reading,Cultural Objects and Merleau-Ponty's Critique of the Argument from Analogy,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-2
 c3.m3.l1.i3,3,3,1,3,reading,"Bodily Coupling, Intercorporeality, and the Limits of Access to Others",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-3
@@ -210,6 +245,7 @@ c3.m3.l1.i6,3,3,1,6,reading,Guided Close Reading: The Infant and the Pretend Bit
 c3.m3.l1.i7,3,3,1,7,dialogue,Perceiving Others,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-7
 c3.m3.l1.i8,3,3,1,8,journal,Journal Entry on Intercorporeality,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-8
 c3.m3.l1.i9,3,3,1,9,knowledge-check,Intercorporeality,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/intercorporeality/#item-9
+c3.m3.l2,3,3,2,,lesson,"Others, Language, Art: Speech as Gesture",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/
 c3.m3.l2.i1,3,3,2,1,reading,"Gesture, Speech, and Thought: Embodied Accounts of Meaning",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-1
 c3.m3.l2.i2,3,3,2,2,reading,Sexuality as a Dimension of Existence and the Expressive Body,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-2
 c3.m3.l2.i3,3,3,2,3,reading,Speech Accomplishes Thought: Merleau-Ponty on the Word as Gesture,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-3
@@ -219,6 +255,7 @@ c3.m3.l2.i6,3,3,2,6,reading,Guided Close Reading: How Speech Accomplishes Though
 c3.m3.l2.i7,3,3,2,7,dialogue,Finding the Words,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-7
 c3.m3.l2.i8,3,3,2,8,journal,Journal Entry on Speech and Expression,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-8
 c3.m3.l2.i9,3,3,2,9,knowledge-check,Speech as Gesture,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/speech-as-gesture/#item-9
+c3.m3.l3,3,3,3,,lesson,"Others, Language, Art: Painting and Vision",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/
 c3.m3.l3.i1,3,3,3,1,reading,Painting as Evidence About Perception: Cézanne and Merleau-Ponty,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-1
 c3.m3.l3.i2,3,3,3,2,reading,Cézanne's Project: Painting the World as It Emerges in Perception,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-2
 c3.m3.l3.i3,3,3,3,3,reading,"Expression as Risk: Cézanne's Doubt, His Life, and His Work",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-3
@@ -228,6 +265,7 @@ c3.m3.l3.i6,3,3,3,6,reading,"Guided Close Reading: Cézanne's Distortions and Li
 c3.m3.l3.i7,3,3,3,7,dialogue,Look Like a Painter,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-7
 c3.m3.l3.i8,3,3,3,8,journal,Journal Entry on Painting and Vision,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-8
 c3.m3.l3.i9,3,3,3,9,knowledge-check,Painting and Vision,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/painting-and-vision/#item-9
+c3.m3.l4,3,3,4,,lesson,"Others, Language, Art: Critical Phenomenology",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/
 c3.m3.l4.i1,3,3,4,1,reading,Critical Phenomenology and the Generality of the Lived Body,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-1
 c3.m3.l4.i2,3,3,4,2,reading,Fanon's Historico-Racial Schema and Epidermal Racial Schema,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-2
 c3.m3.l4.i3,3,3,4,3,reading,Young's Phenomenology of Feminine Motility and Its Challenge to Merleau-Ponty,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-3
@@ -238,6 +276,8 @@ c3.m3.l4.i7,3,3,4,7,dialogue,Situating the Body-Subject,/programs/phenomenology-
 c3.m3.l4.i8,3,3,4,8,journal,Journal Entry on Critical Phenomenology,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-8
 c3.m3.l4.i9,3,3,4,9,knowledge-check,Critical Phenomenology,/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-9
 c3.m3.l4.i10,3,3,4,10,graded-quiz,"Merleau-Ponty: Others, Language, and Art",/programs/phenomenology-consciousness/merleau-ponty-embodiment/merleau-ponty-others-language-and-art/critical-phenomenology/#item-10
+c3.m4,3,4,,,module,Late Merleau-Ponty: Flesh and Chiasm,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/
+c3.m4.l1,3,4,1,,lesson,Flesh and Chiasm: The Self-Critique,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/
 c3.m4.l1.i1,3,4,1,1,reading,Merleau-Ponty's Self-Critique and the Revision of Research Foundations,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-1
 c3.m4.l1.i2,3,4,1,2,reading,The Consciousness–Object Starting Point and the Tacit Cogito,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-2
 c3.m4.l1.i3,3,4,1,3,reading,"Beyond Reflection, Intuition, and Dialectic: Hyper-Reflection and Wild Being",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-3
@@ -247,6 +287,7 @@ c3.m4.l1.i6,3,4,1,6,reading,Guided Close Reading: The Working Note on the Consci
 c3.m4.l1.i7,3,4,1,7,dialogue,Find the Starting Point,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-7
 c3.m4.l1.i8,3,4,1,8,journal,Journal Entry on the Self-Critique,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-8
 c3.m4.l1.i9,3,4,1,9,knowledge-check,The Self-Critique,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/the-self-critique/#item-9
+c3.m4.l2,3,4,2,,lesson,"Flesh and Chiasm: Flesh, Reversibility, Chiasm",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/
 c3.m4.l2.i1,3,4,2,1,reading,Perceiver and World Entangled: Ecological and Enactive Accounts of Perception,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-1
 c3.m4.l2.i2,3,4,2,2,reading,Flesh as Element and the Visibility of the Seer,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-2
 c3.m4.l2.i3,3,4,2,3,reading,Reversibility and the Chiasm: From Husserl's Touching Hands to Merleau-Ponty,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-3
@@ -256,6 +297,7 @@ c3.m4.l2.i6,3,4,2,6,reading,"Guided Close Reading: The Touching–Touched Hands 
 c3.m4.l2.i7,3,4,2,7,dialogue,Experience Reversibility,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-7
 c3.m4.l2.i8,3,4,2,8,journal,Journal Entry on Flesh and Reversibility,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-8
 c3.m4.l2.i9,3,4,2,9,knowledge-check,"Flesh, Reversibility, Chiasm",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/flesh-reversibility-chiasm/#item-9
+c3.m4.l3,3,4,3,,lesson,"Flesh and Chiasm: Subject, World, and Nature",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/
 c3.m4.l3.i1,3,4,3,1,reading,Consciousness in Nature: Life–Mind Continuity and Ecological Phenomenology,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-1
 c3.m4.l3.i2,3,4,3,2,reading,Merleau-Ponty's Nature Lectures and Uexküll's Umwelt,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-2
 c3.m4.l3.i3,3,4,3,3,reading,"The Flesh of the World: Subject, World, and Nature as One Fabric",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-3
@@ -266,9 +308,13 @@ c3.m4.l3.i7,3,4,3,7,dialogue,Assess the Flesh Ontology,/programs/phenomenology-c
 c3.m4.l3.i8,3,4,3,8,journal,Journal Entry on Flesh and Nature,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-8
 c3.m4.l3.i9,3,4,3,9,knowledge-check,"Subject, World, and Nature",/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-9
 c3.m4.l3.i10,3,4,3,10,graded-quiz,Late Merleau-Ponty: Flesh and Chiasm,/programs/phenomenology-consciousness/merleau-ponty-embodiment/late-merleau-ponty-flesh-and-chiasm/subject-world-and-nature/#item-10
+c3.project,3,,project,,project,The Body-Subject Essay,/programs/phenomenology-consciousness/merleau-ponty-embodiment/course-project/
 c3.project.i1,3,,project,1,reading,Merleau-Ponty's Body-Subject in Embodied Cognition Research,/programs/phenomenology-consciousness/merleau-ponty-embodiment/course-project/#item-1
 c3.project.i2,3,,project,2,reading,Project Requirements and Instructions,/programs/phenomenology-consciousness/merleau-ponty-embodiment/course-project/#item-2
 c3.project.i3,3,,project,3,assignment,The Body-Subject Essay,/programs/phenomenology-consciousness/merleau-ponty-embodiment/course-project/#item-3
+c4,4,,,,course,From Phenomenology to Consciousness Studies,/programs/phenomenology-consciousness/consciousness-studies/
+c4.m1,4,1,,,module,From Phenomenology to the Embodied Mind,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/
+c4.m1.l1,4,1,1,,lesson,Embodied Mind: Dreyfus and the Critique of AI,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/
 c4.m1.l1.i1,4,1,1,1,reading,"Expertise, Explicit Rules, and Dreyfus's 1965 Challenge to AI",/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-1
 c4.m1.l1.i2,4,1,1,2,reading,Symbolic AI and Dreyfus's Four Assumptions,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-2
 c4.m1.l1.i3,4,1,1,3,reading,The Relevance Problem and Its Grounds in Heidegger and Merleau-Ponty,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-3
@@ -278,6 +324,7 @@ c4.m1.l1.i6,4,1,1,6,reading,Guided Close Reading: The Relevance Problem in Dreyf
 c4.m1.l1.i7,4,1,1,7,dialogue,Test Dreyfus on Current AI,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-7
 c4.m1.l1.i8,4,1,1,8,journal,Journal Entry on Skill and AI,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-8
 c4.m1.l1.i9,4,1,1,9,knowledge-check,Dreyfus and the Critique of AI,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/dreyfus-and-the-critique-of-ai/#item-9
+c4.m1.l2,4,1,2,,lesson,Embodied Mind: Enactivism and 4E Cognition,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/
 c4.m1.l2.i1,4,1,2,1,reading,Brain-Bound and 4E Models of Where Cognition Happens,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-1
 c4.m1.l2.i2,4,1,2,2,reading,"The Embodied Mind: Enaction, the Middle Way, and Mindfulness",/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-2
 c4.m1.l2.i3,4,1,2,3,reading,"Autopoietic, Sensorimotor, and Radical Enactivism and Their Phenomenological Sources",/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-3
@@ -287,6 +334,7 @@ c4.m1.l2.i6,4,1,2,6,reading,"Guided Close Reading: Otto's Notebook and the Parit
 c4.m1.l2.i7,4,1,2,7,dialogue,Map Your Own Mind,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-7
 c4.m1.l2.i8,4,1,2,8,journal,Journal Entry on the 4E Mind,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-8
 c4.m1.l2.i9,4,1,2,9,knowledge-check,Enactivism and 4E Cognition,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/enactivism-and-4e-cognition/#item-9
+c4.m1.l3,4,1,3,,lesson,Embodied Mind: Neurophenomenology,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/
 c4.m1.l3.i1,4,1,3,1,reading,"First-Person Reports as Data: Introspection, Its Limits, and Its Refinement",/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-1
 c4.m1.l3.i2,4,1,3,2,reading,Varela's Neurophenomenology and the Working Hypothesis of Mutual Constraints,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-2
 c4.m1.l3.i3,4,1,3,3,reading,"First-Person Methods: Epoché, Contemplative Training, and On Becoming Aware",/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-3
@@ -297,6 +345,8 @@ c4.m1.l3.i7,4,1,3,7,dialogue,Design a Neurophenomenology Study,/programs/phenome
 c4.m1.l3.i8,4,1,3,8,journal,Journal Entry on Neurophenomenology,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-8
 c4.m1.l3.i9,4,1,3,9,knowledge-check,Neurophenomenology,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-9
 c4.m1.l3.i10,4,1,3,10,graded-quiz,From Phenomenology to the Embodied Mind,/programs/phenomenology-consciousness/consciousness-studies/from-phenomenology-to-the-embodied-mind/neurophenomenology/#item-10
+c4.m2,4,2,,,module,The Hard Problem and Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/
+c4.m2.l1,4,2,1,,lesson,Hard Problem: The Explanatory Gap,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/
 c4.m2.l1.i1,4,2,1,1,reading,Explaining Experience: The Hard Problem as a Research Question,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-1
 c4.m2.l1.i2,4,2,1,2,reading,"Nagel's ""What Is It Like to Be a Bat?"" and the Subjective Character of Experience",/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-2
 c4.m2.l1.i3,4,2,1,3,reading,Levine's Explanatory Gap and Jackson's Knowledge Argument,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-3
@@ -306,6 +356,7 @@ c4.m2.l1.i6,4,2,1,6,reading,"Guided Close Reading: Easy and Hard Problems in Cha
 c4.m2.l1.i7,4,2,1,7,dialogue,State the Hard Problem Yourself,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-7
 c4.m2.l1.i8,4,2,1,8,journal,Journal Entry on the Hard Problem,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-8
 c4.m2.l1.i9,4,2,1,9,knowledge-check,The Explanatory Gap,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/the-explanatory-gap/#item-9
+c4.m2.l2,4,2,2,,lesson,Hard Problem: Responses,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/
 c4.m2.l2.i1,4,2,2,1,reading,"The Costs of Physicalism, Illusionism, Panpsychism, and Dualism",/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-1
 c4.m2.l2.i2,4,2,2,2,reading,Type-A and Type-B Physicalism and the Phenomenal Concept Strategy,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-2
 c4.m2.l2.i3,4,2,2,3,reading,"Illusionism: Dennett, Frankish, and the Illusion Problem",/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-3
@@ -315,6 +366,7 @@ c4.m2.l2.i6,4,2,2,6,reading,Guided Close Reading: Frankish on Quasi-Phenomenal P
 c4.m2.l2.i7,4,2,2,7,dialogue,Find Your Position,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-7
 c4.m2.l2.i8,4,2,2,8,journal,Journal Entry on Responses to the Hard Problem,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-8
 c4.m2.l2.i9,4,2,2,9,knowledge-check,Responses to the Hard Problem,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/responses/#item-9
+c4.m2.l3,4,2,3,,lesson,Hard Problem: Scientific Theories,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/
 c4.m2.l3.i1,4,2,3,1,reading,Testing Theories of Consciousness: Stakes in the Clinic and in AI,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-1
 c4.m2.l3.i2,4,2,3,2,reading,Global Workspace and Integrated Information Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-2
 c4.m2.l3.i3,4,2,3,3,reading,Higher-Order and Predictive Processing Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-3
@@ -324,6 +376,7 @@ c4.m2.l3.i6,4,2,3,6,reading,Guided Walkthrough: Reading the Cogitate Adversarial
 c4.m2.l3.i7,4,2,3,7,dialogue,Compare the Theories,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-7
 c4.m2.l3.i8,4,2,3,8,journal,Journal Entry on Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-8
 c4.m2.l3.i9,4,2,3,9,knowledge-check,Scientific Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/scientific-theories/#item-9
+c4.m2.l4,4,2,4,,lesson,Hard Problem: Phenomenology's Contribution,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/
 c4.m2.l4.i1,4,2,4,1,reading,The Explanandum Problem: Phenomenology and the Description of Experience,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-1
 c4.m2.l4.i2,4,2,4,2,reading,"Pre-Reflective Self-Awareness and For-Me-Ness: Husserl, Sartre, and Zahavi",/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-2
 c4.m2.l4.i3,4,2,4,3,reading,"Gallagher's Minimal Self: Ownership, Agency, and Thought Insertion",/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-3
@@ -334,6 +387,8 @@ c4.m2.l4.i7,4,2,4,7,dialogue,What Phenomenology Adds,/programs/phenomenology-con
 c4.m2.l4.i8,4,2,4,8,journal,Journal Entry on Phenomenology's Contribution,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-8
 c4.m2.l4.i9,4,2,4,9,knowledge-check,Phenomenology's Contribution,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-9
 c4.m2.l4.i10,4,2,4,10,graded-quiz,The Hard Problem and Theories of Consciousness,/programs/phenomenology-consciousness/consciousness-studies/the-hard-problem-and-theories-of-consciousness/phenomenologys-contribution/#item-10
+c4.m3,4,3,,,module,Experience and Science: The Blind Spot,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/
+c4.m3.l1,4,3,1,,lesson,Blind Spot: The Argument,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/
 c4.m3.l1.i1,4,3,1,1,reading,"The Blind Spot of Science: Frank, Gleiser, and Thompson's Guiding Image",/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-1
 c4.m3.l1.i2,4,3,1,2,reading,"Temperature, Abstraction, and the Amnesia of Experience in The Blind Spot",/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-2
 c4.m3.l1.i3,4,3,1,3,reading,Blind Spot Metaphysics and Its Sources in Husserl and Whitehead,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-3
@@ -343,6 +398,7 @@ c4.m3.l1.i6,4,3,1,6,reading,Guided Close Reading: The Parable of Temperature in 
 c4.m3.l1.i7,4,3,1,7,dialogue,Find the Blind Spot,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-7
 c4.m3.l1.i8,4,3,1,8,journal,Journal Entry on the Blind Spot,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-8
 c4.m3.l1.i9,4,3,1,9,knowledge-check,The Blind Spot Argument,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/the-argument/#item-9
+c4.m3.l2,4,3,2,,lesson,Blind Spot: Roots and Critics,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/
 c4.m3.l2.i1,4,3,2,1,reading,The Blind Spot and Its Phenomenological Inheritance,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-1
 c4.m3.l2.i2,4,3,2,2,reading,"Husserl's Crisis and The Blind Spot: Mathematization, Garb, and Substitution",/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-2
 c4.m3.l2.i3,4,3,2,3,reading,Merleau-Ponty's Primacy of Perception and What The Blind Spot Adds,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-3
@@ -352,6 +408,7 @@ c4.m3.l2.i6,4,3,2,6,reading,Guided Walkthrough: Tracing The Blind Spot's Lineage
 c4.m3.l2.i7,4,3,2,7,dialogue,Weigh the Critics,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-7
 c4.m3.l2.i8,4,3,2,8,journal,Journal Entry on Roots and Critics,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-8
 c4.m3.l2.i9,4,3,2,9,knowledge-check,Roots and Critics,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/roots-and-critics/#item-9
+c4.m3.l3,4,3,3,,lesson,Blind Spot: Forming Your Position,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/
 c4.m3.l3.i1,4,3,3,1,reading,From Summary to Position: Consciousness Questions with Real Stakes,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-1
 c4.m3.l3.i2,4,3,3,2,reading,A Precise Question and a Map of Rival Positions,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-2
 c4.m3.l3.i3,4,3,3,3,reading,"Falsifiable Claims, Phenomenological Grounding, Objections, and Limits",/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-3
@@ -362,6 +419,7 @@ c4.m3.l3.i7,4,3,3,7,dialogue,Sharpen Your Position,/programs/phenomenology-consc
 c4.m3.l3.i8,4,3,3,8,journal,Journal Entry on Your Position,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-8
 c4.m3.l3.i9,4,3,3,9,knowledge-check,Forming Your Position,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-9
 c4.m3.l3.i10,4,3,3,10,graded-quiz,Experience and Science: The Blind Spot,/programs/phenomenology-consciousness/consciousness-studies/experience-and-science-the-blind-spot/forming-your-position/#item-10
+c4.project,4,,project,,project,Consciousness Position Paper,/programs/phenomenology-consciousness/consciousness-studies/course-project/
 c4.project.i1,4,,project,1,reading,"Position Papers, Adversarial Collaboration, and Phenomenology in Consciousness Science",/programs/phenomenology-consciousness/consciousness-studies/course-project/#item-1
 c4.project.i2,4,,project,2,reading,Project Requirements and Instructions,/programs/phenomenology-consciousness/consciousness-studies/course-project/#item-2
 c4.project.i3,4,,project,3,assignment,Consciousness Position Paper,/programs/phenomenology-consciousness/consciousness-studies/course-project/#item-3

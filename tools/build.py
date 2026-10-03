@@ -1440,38 +1440,56 @@ def build_program(site, spec, out_root):
 
 
 def locations_csv(program):
-    """Every stable location id with its human-readable title.
+    """Every location id the site can report, with a readable title.
+
+    Must cover every level, not just items: the page-level "report an issue on
+    this page" link sends a lesson id such as c1.m1.l1, and a lookup table of
+    item ids alone leaves those reports unresolvable in the responses sheet.
 
     Paste this into a second tab of the form's responses sheet and a report
-    that says `c3.m2.l1.i6` becomes readable with a VLOOKUP, without having to
+    that says c3.m2.l1.i6 becomes readable with a VLOOKUP, without having to
     put titles into the form itself where they would go stale.
     """
     rows = ["id,course,module,lesson,item,type,title,url"]
 
     def esc(value):
         value = str(value if value is not None else "")
-        if any(ch in value for ch in (",", '"', "\n")):
+        if any(ch in value for ch in (",", '"', chr(10))):
             return '"%s"' % value.replace('"', '""')
         return value
 
-    def add(scope, index, item, course_num, module_num, lesson_num, href):
-        rows.append(",".join(esc(v) for v in [
-            item_id(scope, index), course_num, module_num, lesson_num,
-            index + 1, item["type"], item["title"], "%s#%s" % (href, item["anchor"]),
-        ]))
+    def add(ident, course_num, module_num, lesson_num, item_num, kind, title, url):
+        rows.append(",".join(esc(v) for v in
+                             [ident, course_num, module_num, lesson_num,
+                              item_num, kind, title, url]))
 
     for course in program["courses"]:
+        cn = course["num"]
+        add("c%d" % cn, cn, "", "", "", "course", course["title"],
+            course_href(program, course))
+
         for module in course["modules"]:
+            mn = module["num"]
+            add("c%d.m%d" % (cn, mn), cn, mn, "", "", "module", module["title"],
+                module_href(program, course, module))
+
             for lesson in module["lessons"]:
                 scope = lesson_id(course, module, lesson)
                 href = lesson_href(program, course, module, lesson)
+                add(scope, cn, mn, lesson["num"], "", "lesson", lesson["title"], href)
                 for index, item in enumerate(lesson["items"]):
-                    add(scope, index, item, course["num"], module["num"], lesson["num"], href)
+                    add(item_id(scope, index), cn, mn, lesson["num"], index + 1,
+                        item["type"], item["title"], "%s#%s" % (href, item["anchor"]))
+
         if course.get("project"):
             scope = project_id(course)
             href = project_href(program, course)
+            add(scope, cn, "", "project", "", "project",
+                course["project"]["title"], href)
             for index, item in enumerate(course["project"]["items"]):
-                add(scope, index, item, course["num"], "", "project", href)
+                add(item_id(scope, index), cn, "", "project", index + 1,
+                    item["type"], item["title"], "%s#%s" % (href, item["anchor"]))
+
     return "\n".join(rows) + "\n"
 
 
