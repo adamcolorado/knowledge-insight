@@ -135,10 +135,10 @@ properly. JavaScript adds navigation state, progress, the quizzes, and the
 Guided Conversation links.
 
 ```
-markdown/                authored source (never edited by the build)
+markdown/                authored source (never edited by the build; local only)
 content/site.json        org copy and the program registry — edit this, not the code
 tools/                   build, parser, Markdown renderer, checks, dev server
-images/                  original images the site's assets were made from
+images/                  original images the site's assets were made from (local only)
 docs/                    THE PUBLISHED SITE — the only folder GitHub Pages serves
   assets/                stylesheet, scripts, images (hand-edited)
   content/<program>/     generated: program.json nav tree, quiz JSON, locations.csv
@@ -161,9 +161,14 @@ GitHub Pages serves the `docs/` folder of `main` at
 `https://knowledgeinsight.org` (Settings > Pages > Deploy from a branch >
 `main` / `/docs`). Push a build and it is live within a minute or two.
 
-Only `docs/` is on the website. `markdown/`, `tools/`, `images/`,
-`content/site.json`, and this README are not served — but the repository
-itself is public, so they can still be read on GitHub.
+Only `docs/` is on the website. `tools/`, `content/site.json`, and this README
+are not served, but the repository is public, so they can be read on GitHub.
+
+`markdown/` and `images/` are in `.gitignore` and are never pushed: the course
+sources and SME logs stay private, and the licensed stock originals are not
+redistributed. They exist only on the machine that builds the site, so back
+them up separately. A fresh clone of this repo cannot rebuild the site until
+`markdown/` is copied in.
 
 Every page's canonical link, `og:url`, share image, sitemap entries, and
 `robots.txt` take their host from `domain` in `content/site.json`; change it
@@ -333,7 +338,9 @@ tell at a glance what they can start today.
 
 ## Images
 
-`images/` holds the originals. `docs/assets/img/` holds what the site actually uses:
+`images/` holds the originals, locally only (it is gitignored; several are
+licensed stock photos that may be used on the site but not redistributed).
+`docs/assets/img/` holds what the site actually uses:
 
 | File | From | Use |
 | :---- | :---- | :---- |
@@ -342,11 +349,11 @@ tell at a glance what they can start today.
 | `ki-wordmark.svg` | new | transparent wordmark for print and decks (not used by the site) |
 | `og-card.jpg` | `KI background.png` | social sharing card, 1200x630 |
 | `adam-h.jpg` | `adam-h.jpg` | About page portrait |
+| `apple-touch-icon.png`, `favicon-32.png` | `logo.png` | icons |
 
 `images/` now holds only the four originals that an asset is derived from.
 `py -3 tools/unused.py` reports any file that nothing references, and treats a
 source image as used when something in `docs/assets/img/` was generated from it.
-| `apple-touch-icon.png`, `favicon-32.png` | `logo.png` | icons |
 
 The header mark is drawn from the icon sprite rather than loaded as an image,
 so it inherits `currentColor` and sits correctly on the dark blue bar.

@@ -5,3 +5,9 @@ __pycache__/
 # OS cruft
 Thumbs.db
 .DS_Store
+
+# Kept on this machine only, never pushed.
+# markdown/: course sources and SME logs. images/: licensed stock originals;
+# the resized copies the site uses live in docs/assets/img/.
+markdown/
+images/
