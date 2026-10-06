@@ -86,9 +86,9 @@ def main():
         if path.is_dir() or path.name.startswith("."):
             continue
         if path.suffix in (".html", ".md", ".bat"):
-            # index.html and about.html are generated; README and the launchers
-            # are obviously in use. Flag only strays.
-            if path.name in ("index.html", "about.html", "README.md",
+            # index.html, about.html and 404.html are generated; README and the
+            # launchers are obviously in use. Flag only strays.
+            if path.name in ("index.html", "about.html", "404.html", "README.md",
                              "serve.bat", "serve-phone.bat"):
                 continue
             print("  %-40s STRAY (not generated, not linked)" % path.name)

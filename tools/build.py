@@ -42,7 +42,12 @@ BUILD_MARKER = """<!-- =========================================================
      ============================================================ -->"""
 
 GENERATED_DIRS = ["programs"]
-GENERATED_FILES = ["index.html", "about.html"]
+GENERATED_FILES = ["index.html", "about.html", "404.html", "sitemap.xml", "robots.txt"]
+
+# Stands in for the page's public URL until write_page() knows where it lands.
+PAGE_URL = "{{page-url}}"
+# Every indexable page written this build, for sitemap.xml.
+PAGE_URLS = []
 
 
 # ==========================================================================
@@ -156,12 +161,24 @@ def write(path, text):
     path.write_text(text, encoding="utf-8")
 
 
+def site_url(site):
+    return "https://%s" % site.get("domain", "knowledgeinsight.org")
+
+
+def write_page(site, path, text):
+    """Write an HTML page, filling in its public URL for canonical and og:url."""
+    rel = path.relative_to(ROOT).as_posix()
+    url = "%s/%s" % (site_url(site), rel[:-len("index.html")] if rel.endswith("index.html") else rel)
+    PAGE_URLS.append(url)
+    write(path, text.replace(PAGE_URL, attr(url)))
+
+
 # ==========================================================================
 # Page shell
 # ==========================================================================
 
 def page(title, body, description="", body_class="", site=None,
-         canonical="", extra_head="", scripts=(), program_id=""):
+         canonical=PAGE_URL, extra_head="", scripts=(), program_id=""):
     site = site or {}
     org = site.get("org", "Knowledge InSight")
     full_title = title if title == org else "%s | %s" % (title, org)
@@ -179,7 +196,9 @@ def page(title, body, description="", body_class="", site=None,
 <meta property="og:title" content="{attr(full_title)}">
 <meta property="og:description" content="{attr(desc)}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/assets/img/og-card.jpg">
+<meta property="og:site_name" content="{attr(org)}">
+{f'<meta property="og:url" content="{attr(canonical)}">' if canonical else ''}
+<meta property="og:image" content="{site_url(site)}/assets/img/og-card.jpg">
 <meta name="twitter:card" content="summary_large_image">
 {f'<link rel="canonical" href="{attr(canonical)}">' if canonical else ''}
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
@@ -1412,6 +1431,29 @@ def nav_tree(program):
     }
 
 
+def build_not_found(site):
+    """Served by the host for any missing path, so every URL in it is root-relative."""
+    main = f"""<main id="main">
+  <header class="page-head wrap">
+    <p class="eyebrow">Page not found</p>
+    <h1>We could not find that page.</h1>
+    <p class="lede">The link may be out of date, or the address may have a typo in it.</p>
+    <p class="cta-row">
+      <a class="btn" href="/">{icon('arrow-left')}<span>Home</span></a>
+      <a class="btn btn-quiet" href="/#programs">{icon('list')}<span>Browse the programs</span></a>
+    </p>
+  </header>
+</main>"""
+    return page("Page not found", main, body_class="page-not-found", site=site, canonical="",
+                extra_head='<meta name="robots" content="noindex">')
+
+
+def sitemap(urls):
+    entries = "".join("  <url><loc>%s</loc></url>\n" % html.escape(url) for url in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s</urlset>\n' % entries)
+
+
 def build_program(site, spec, out_root):
     program = dict(spec)
     program["courses"] = []
@@ -1431,27 +1473,27 @@ def build_program(site, spec, out_root):
     index_of = {stop["href"]: i for i, stop in enumerate(stops)}
     base = out_root / "programs" / program["id"]
 
-    write(base / "index.html", build_program_page(site, program))
-    write(base / "map" / "index.html", build_map_page(site, program))
-    write(base / "status" / "index.html", build_status_page(site, program))
+    write_page(site, base / "index.html", build_program_page(site, program))
+    write_page(site, base / "map" / "index.html", build_map_page(site, program))
+    write_page(site, base / "status" / "index.html", build_status_page(site, program))
 
     quiz_dir = CONTENT / program["id"] / "quizzes"
     quiz_count = 0
 
     for course in program["courses"]:
         href = course_href(program, course)
-        write(out_root / href.strip("/") / "index.html",
+        write_page(site, out_root / href.strip("/") / "index.html",
               build_course_page(site, program, course, stops, index_of[href]))
 
         for module in course["modules"]:
             href = module_href(program, course, module)
-            write(out_root / href.strip("/") / "index.html",
+            write_page(site, out_root / href.strip("/") / "index.html",
                   build_module_page(site, program, course, module, stops, index_of[href]))
 
             for lesson in module["lessons"]:
                 href = lesson_href(program, course, module, lesson)
                 scope = lesson_id(course, module, lesson)
-                write(out_root / href.strip("/") / "index.html",
+                write_page(site, out_root / href.strip("/") / "index.html",
                       build_lesson_page(site, program, course, module, lesson,
                                         stops, index_of[href], scope))
                 quiz_count += emit_quizzes(lesson, scope, quiz_dir)
@@ -1459,7 +1501,7 @@ def build_program(site, spec, out_root):
         if course.get("project"):
             href = project_href(program, course)
             scope = project_id(course)
-            write(out_root / href.strip("/") / "index.html",
+            write_page(site, out_root / href.strip("/") / "index.html",
                   build_lesson_page(site, program, course, None, course["project"],
                                     stops, index_of[href], scope, is_project=True))
             quiz_count += emit_quizzes(course["project"], scope, quiz_dir)
@@ -1573,9 +1615,13 @@ def main():
         quizzes += quiz_count
         pages += stop_count + 3  # + program page + map + status
 
-    write(out_root / "index.html", build_splash(site, built))
-    write(out_root / "about.html", build_about(site, built))
-    pages += 2
+    write_page(site, out_root / "index.html", build_splash(site, built))
+    write_page(site, out_root / "about.html", build_about(site, built))
+    write(out_root / "404.html", build_not_found(site))
+    write(out_root / "sitemap.xml", sitemap(PAGE_URLS))
+    write(out_root / "robots.txt",
+          "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % site_url(site))
+    pages += 3
 
     print("Knowledge InSight build")
     for program in built:

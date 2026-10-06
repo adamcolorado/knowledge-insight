@@ -113,8 +113,8 @@ No dependencies beyond Python 3. Nothing is installed; no Node, no bundler.
 
 ## Where to edit what
 
-**Never edit the HTML.** `index.html`, `about.html`, and everything under
-`programs/` are generated and are overwritten by every build. Each one opens
+**Never edit the HTML.** `index.html`, `about.html`, `404.html`,
+`sitemap.xml`, `robots.txt`, and everything under `programs/` are generated and are overwritten by every build. Each one opens
 with a banner saying so. Edits there are lost on the next `tools/build.py`.
 
 | To change | Edit |
@@ -141,11 +141,31 @@ tools/              build, parser, Markdown renderer, checks
 assets/             stylesheet, scripts, images
 index.html          generated splash
 about.html          generated
+404.html            generated; served by the host for any missing path
+sitemap.xml         generated; every page except 404.html
+robots.txt          generated; points crawlers at the sitemap
 programs/           generated program, course, module, and lesson pages
+CNAME               the custom domain, for GitHub Pages
+.nojekyll           tells GitHub Pages to serve files as-is, without Jekyll
 ```
 
 Generated output is committed so the repo can be served directly by GitHub
 Pages or any static host.
+
+### Publishing
+
+The site is served by GitHub Pages from the root of `main` at
+`https://knowledgeinsight.org`. Push a build and it is live within a minute or
+two. Every page's canonical link, `og:url`, share image, sitemap entries, and
+`robots.txt` take their host from `domain` in `content/site.json`; change it
+there if the domain ever changes, and update `CNAME` to match.
+
+All internal links are root-relative (`/assets/...`), so the site works at the
+root of a domain and not under a project subpath such as
+`username.github.io/knowledge-insight/`. That is why the custom domain is set
+before launch rather than after.
+
+Everything in the repo is publicly served, including `markdown/` and `tools/`.
 
 ### Content model
 
