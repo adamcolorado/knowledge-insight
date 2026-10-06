@@ -3,12 +3,12 @@
 Report assets and source images that nothing references.
 
 Looks for each file's name in the generated HTML, the stylesheet, the scripts,
-the build sources, and the docs. Anything unmentioned is a deletion candidate.
+the build sources, and the README. Anything unmentioned is a deletion candidate.
 
     py -3 tools/unused.py
 
 Source images under images/ are treated separately: one is "used" if a file in
-assets/img/ was derived from it, which the report has to be told about, since
+docs/assets/img/ was derived from it, which the report has to be told about, since
 that link exists only in the commands that generated the derivative.
 """
 
@@ -31,7 +31,7 @@ DERIVED_FROM = {
 }
 
 SEARCH_GLOBS = [
-    "*.html", "programs/**/*.html", "assets/css/*.css", "assets/js/*.js",
+    "docs/*.html", "docs/programs/**/*.html", "docs/assets/css/*.css", "docs/assets/js/*.js",
     "tools/*.py", "tools/*.html", "tools/*.ps1", "content/*.json",
     "*.md", "*.bat",
 ]
@@ -55,7 +55,7 @@ def main():
     unused = []
 
     print("assets/img")
-    for path in sorted((ROOT / "assets" / "img").glob("*")):
+    for path in sorted((ROOT / "docs" / "assets" / "img").glob("*")):
         if path.name in blob.replace(path.name, path.name):  # literal search
             referenced = path.name in blob
         else:
@@ -66,7 +66,7 @@ def main():
             unused.append(path)
 
     used_originals = {
-        DERIVED_FROM[p.name] for p in (ROOT / "assets" / "img").glob("*")
+        DERIVED_FROM[p.name] for p in (ROOT / "docs" / "assets" / "img").glob("*")
         if p.name in DERIVED_FROM and p.name in blob
     }
 
@@ -81,15 +81,16 @@ def main():
             unused.append(path)
         print("  %-40s %s" % (path.name, reason))
 
-    print("\nother files at the repo root")
-    for path in sorted(ROOT.glob("*")):
+    print("\nother files at the repo root and in docs/")
+    for path in sorted(list(ROOT.glob("*")) + list((ROOT / "docs").glob("*"))):
         if path.is_dir() or path.name.startswith("."):
             continue
         if path.suffix in (".html", ".md", ".bat"):
-            # index.html, about.html and 404.html are generated; README and the
-            # launchers are obviously in use. Flag only strays.
-            if path.name in ("index.html", "about.html", "404.html", "README.md",
-                             "serve.bat", "serve-phone.bat"):
+            # The site's index.html, about.html and 404.html are generated;
+            # README and the launchers are obviously in use. Flag only strays.
+            in_site = path.parent.name == "docs"
+            if path.name in (("index.html", "about.html", "404.html") if in_site
+                             else ("README.md", "serve.bat", "serve-phone.bat")):
                 continue
             print("  %-40s STRAY (not generated, not linked)" % path.name)
             unused.append(path)

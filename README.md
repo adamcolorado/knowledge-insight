@@ -6,7 +6,7 @@ Markdown. Destined for `knowledgeinsight.org`.
 ## Running it locally
 
 The site uses clean directory URLs and fetches quiz data, so open it through a
-server rather than from the filesystem. Opening `index.html` directly will load
+server rather than from the filesystem. Opening `docs/index.html` directly will load
 the page but the quizzes will not run.
 
 **Double-click `serve.bat`.** It rebuilds, starts the server, and opens a
@@ -22,7 +22,7 @@ py -3 tools/serve.py --port 8080 --no-open --no-build
 Or with nothing but the standard library, if you have already built:
 
 ```sh
-py -3 -m http.server 8000      # then visit http://localhost:8000
+py -3 -m http.server 8000 -d docs   # then visit http://localhost:8000
 ```
 
 `serve.py` exists because the plain one-liner has two rough edges on Windows:
@@ -91,7 +91,7 @@ to get a real narrow viewport.
 ### What differs on a phone
 
 Served over plain `http`, the page is not a *secure context*, so
-`navigator.clipboard` does not exist. `assets/js/site.js` falls back to a
+`navigator.clipboard` does not exist. `docs/assets/js/site.js` falls back to a
 `document.execCommand` path written to work on iOS, which ignores `.select()`
 on a readonly textarea and ignores off-screen elements. Test the **Copy
 prompt** button there specifically; it takes a different code path than on
@@ -113,17 +113,18 @@ No dependencies beyond Python 3. Nothing is installed; no Node, no bundler.
 
 ## Where to edit what
 
-**Never edit the HTML.** `index.html`, `about.html`, `404.html`,
-`sitemap.xml`, `robots.txt`, and everything under `programs/` are generated and are overwritten by every build. Each one opens
-with a banner saying so. Edits there are lost on the next `tools/build.py`.
+**Never edit the HTML.** Everything in `docs/` is generated and overwritten by
+every build, except `docs/assets/`, `docs/CNAME` and `docs/.nojekyll`. Each
+generated page opens with a banner saying so. Edits there are lost on the next
+`tools/build.py`.
 
 | To change | Edit |
 | :---- | :---- |
 | Site copy, About text, bio, program titles, vetting status | `content/site.json` |
 | Course, module, lesson, and item content | `markdown/` |
 | Page structure and markup | `tools/build.py` |
-| Styling | `assets/css/main.css` |
-| Behaviour | `assets/js/` |
+| Styling | `docs/assets/css/main.css` |
+| Behaviour | `docs/assets/js/` |
 
 ## How it works
 
@@ -134,38 +135,48 @@ properly. JavaScript adds navigation state, progress, the quizzes, and the
 Guided Conversation links.
 
 ```
-markdown/           authored source (never edited by the build)
-content/site.json   org copy and the program registry — edit this, not the code
-content/<program>/  generated: program.json nav tree + one JSON per quiz
-tools/              build, parser, Markdown renderer, checks
-assets/             stylesheet, scripts, images
-index.html          generated splash
-about.html          generated
-404.html            generated; served by the host for any missing path
-sitemap.xml         generated; every page except 404.html
-robots.txt          generated; points crawlers at the sitemap
-programs/           generated program, course, module, and lesson pages
-CNAME               the custom domain, for GitHub Pages
-.nojekyll           tells GitHub Pages to serve files as-is, without Jekyll
+markdown/                authored source (never edited by the build)
+content/site.json        org copy and the program registry — edit this, not the code
+tools/                   build, parser, Markdown renderer, checks, dev server
+images/                  original images the site's assets were made from
+docs/                    THE PUBLISHED SITE — the only folder GitHub Pages serves
+  assets/                stylesheet, scripts, images (hand-edited)
+  content/<program>/     generated: program.json nav tree, quiz JSON, locations.csv
+  index.html             generated splash
+  about.html             generated
+  404.html               generated; served by the host for any missing path
+  sitemap.xml            generated; every page except 404.html
+  robots.txt             generated; points crawlers at the sitemap
+  programs/              generated program, course, module, and lesson pages
+  CNAME                  the custom domain, for GitHub Pages
+  .nojekyll              tells GitHub Pages to serve files as-is, without Jekyll
 ```
 
-Generated output is committed so the repo can be served directly by GitHub
+Generated output is committed so `docs/` can be served directly by GitHub
 Pages or any static host.
 
 ### Publishing
 
-The site is served by GitHub Pages from the root of `main` at
-`https://knowledgeinsight.org`. Push a build and it is live within a minute or
-two. Every page's canonical link, `og:url`, share image, sitemap entries, and
+GitHub Pages serves the `docs/` folder of `main` at
+`https://knowledgeinsight.org` (Settings > Pages > Deploy from a branch >
+`main` / `/docs`). Push a build and it is live within a minute or two.
+
+Only `docs/` is on the website. `markdown/`, `tools/`, `images/`,
+`content/site.json`, and this README are not served — but the repository
+itself is public, so they can still be read on GitHub.
+
+Every page's canonical link, `og:url`, share image, sitemap entries, and
 `robots.txt` take their host from `domain` in `content/site.json`; change it
-there if the domain ever changes, and update `CNAME` to match.
+there if the domain ever changes, and update `docs/CNAME` to match.
 
 All internal links are root-relative (`/assets/...`), so the site works at the
 root of a domain and not under a project subpath such as
 `username.github.io/knowledge-insight/`. That is why the custom domain is set
 before launch rather than after.
 
-Everything in the repo is publicly served, including `markdown/` and `tools/`.
+`tools/serve.py` serves `docs/` locally, and additionally maps `/tools/` to the
+repo's `tools/` folder so the overflow probe (see "Finding layout bugs") still loads. That mapping
+exists only on your machine.
 
 ### Content model
 
@@ -204,7 +215,7 @@ a progress line on its bottom edge, previous/next lesson, and previous/next
 item with a dropdown of the lesson's items. The masthead is deliberately
 `position: static` on these pages so only one thing is pinned.
 
-`assets/js/lessonnav.js` tracks the current item as the last one whose top has
+`docs/assets/js/lessonnav.js` tracks the current item as the last one whose top has
 passed under the bar, which is what a reader means by where they are — several
 items are partly visible at any moment, so "first intersecting" would jump
 around.
@@ -212,7 +223,7 @@ around.
 ### Guided Conversations
 
 Each prompt is stored once, as the text of the `<pre>` inside the collapsed
-"Show the full prompt" panel. `assets/js/dialogue.js` reads it from there and
+"Show the full prompt" panel. `docs/assets/js/dialogue.js` reads it from there and
 builds each assistant's URL at click time, so a link format lives in one place
 rather than in 38 Markdown files.
 
@@ -237,7 +248,7 @@ were verified byte-identical to the originals in the source.
 
 ### Quizzes
 
-H5P is not used. `assets/js/quiz.js` implements the four question types in the
+H5P is not used. `docs/assets/js/quiz.js` implements the four question types in the
 source — single answer, multiple answers with partial credit, text match with
 case- and punctuation-insensitive alternates, and dropdown blanks — and renders
 each option's own feedback. Quiz data is fetched on demand, so a lesson page
@@ -274,7 +285,7 @@ To connect a feedback form, fill in `statuses.in-progress` in
 
 Get the field ids from the form's **Send > Get pre-filled link**. With them set,
 every item gains a quiet "Report an issue with this item" link, and
-`assets/js/feedback.js` prefills three values:
+`docs/assets/js/feedback.js` prefills three values:
 
 | Field | Example | Why |
 | :---- | :---- | :---- |
@@ -285,7 +296,7 @@ every item gains a quiet "Report an issue with this item" link, and
 Leave `feedbackUrl` blank and no per-item links render at all, and the status
 page shows an honest placeholder rather than a dead button.
 
-`content/<program>/locations.csv` is generated on every build: one row per item
+`docs/content/<program>/locations.csv` is generated on every build: one row per item
 with its id, title, and URL. Paste it into a second tab of the responses sheet
 so a report that says `c3.m2.l1.i6` is readable with a VLOOKUP, without putting
 titles into the form where they would go stale.
@@ -297,7 +308,7 @@ automatically)" is the usual accommodation.
 ## Design
 
 Colours are sampled from `images/knowledge-insight-background.jpg` and defined
-once as custom properties in `assets/css/main.css`. Chrome takes the blues of
+once as custom properties in `docs/assets/css/main.css`. Chrome takes the blues of
 the painted planks; the page itself is white, with the warm paper of the book
 pages used as a secondary surface for the outline sidebar and quiet bands;
 item-type accents take the orange and yellow book spines plus the plum of the
@@ -322,7 +333,7 @@ tell at a glance what they can start today.
 
 ## Images
 
-`images/` holds the originals. `assets/img/` holds what the site actually uses:
+`images/` holds the originals. `docs/assets/img/` holds what the site actually uses:
 
 | File | From | Use |
 | :---- | :---- | :---- |
@@ -334,7 +345,7 @@ tell at a glance what they can start today.
 
 `images/` now holds only the four originals that an asset is derived from.
 `py -3 tools/unused.py` reports any file that nothing references, and treats a
-source image as used when something in `assets/img/` was generated from it.
+source image as used when something in `docs/assets/img/` was generated from it.
 | `apple-touch-icon.png`, `favicon-32.png` | `logo.png` | icons |
 
 The header mark is drawn from the icon sprite rather than loaded as an image,

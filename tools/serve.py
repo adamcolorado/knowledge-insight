@@ -21,8 +21,10 @@ import webbrowser
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parent.parent
+SITE = ROOT / "docs"
 MAX_PORT_TRIES = 20
 
 
@@ -41,7 +43,20 @@ class Server(ThreadingHTTPServer):
 
 
 class Handler(SimpleHTTPRequestHandler):
-    """Serve the repo root, quietly, and without caching during development."""
+    """Serve docs/, quietly, and without caching during development.
+
+    /tools/ is mapped to the repo's tools/ folder so the overflow probe still
+    loads locally, though it is never published.
+    """
+
+    def translate_path(self, path):
+        if path.startswith("/tools/"):
+            tools = ROOT / "tools"
+            name = unquote(path[len("/tools/"):].split("?", 1)[0].split("#", 1)[0])
+            target = (tools / name).resolve()
+            if target.parent == tools:
+                return str(target)
+        return super().translate_path(path)
 
     def end_headers(self):
         self.send_header("Cache-Control", "no-store, must-revalidate")
@@ -93,7 +108,7 @@ def build():
 
 def listen(port, host="127.0.0.1"):
     """Bind the first free port at or above the requested one."""
-    handler = partial(Handler, directory=str(ROOT))
+    handler = partial(Handler, directory=str(SITE))
     for candidate in range(port, port + MAX_PORT_TRIES):
         try:
             return Server((host, candidate), handler), candidate

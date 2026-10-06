@@ -148,7 +148,7 @@ def check(path):
 
 
 def main():
-    files = sorted((ROOT / "assets" / "js").glob("*.js"))
+    files = sorted((ROOT / "docs" / "assets" / "js").glob("*.js"))
     total = 0
     for path in files:
         problems = check(path)

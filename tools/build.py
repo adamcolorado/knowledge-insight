@@ -31,6 +31,9 @@ from parse import (ACTIVITY, ASSIGNMENT, DIALOGUE, GRADED_QUIZ,   # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 MARKDOWN = ROOT / "markdown"
 CONTENT = ROOT / "content"
+# Everything GitHub Pages publishes. Sources outside it are never served.
+SITE = ROOT / "docs"
+DATA = SITE / "content"
 BUILD_MARKER = """<!-- ============================================================
      GENERATED FILE - DO NOT EDIT
      Every `py -3 tools/build.py` overwrites this file.
@@ -38,7 +41,7 @@ BUILD_MARKER = """<!-- =========================================================
        copy, headings, bio, status  ->  content/site.json
        course content               ->  markdown/
        layout and markup            ->  tools/build.py
-       styling                      ->  assets/css/main.css
+       styling                      ->  docs/assets/css/main.css
      ============================================================ -->"""
 
 GENERATED_DIRS = ["programs"]
@@ -167,7 +170,7 @@ def site_url(site):
 
 def write_page(site, path, text):
     """Write an HTML page, filling in its public URL for canonical and og:url."""
-    rel = path.relative_to(ROOT).as_posix()
+    rel = path.relative_to(SITE).as_posix()
     url = "%s/%s" % (site_url(site), rel[:-len("index.html")] if rel.endswith("index.html") else rel)
     PAGE_URLS.append(url)
     write(path, text.replace(PAGE_URL, attr(url)))
@@ -1477,7 +1480,7 @@ def build_program(site, spec, out_root):
     write_page(site, base / "map" / "index.html", build_map_page(site, program))
     write_page(site, base / "status" / "index.html", build_status_page(site, program))
 
-    quiz_dir = CONTENT / program["id"] / "quizzes"
+    quiz_dir = DATA / program["id"] / "quizzes"
     quiz_count = 0
 
     for course in program["courses"]:
@@ -1506,9 +1509,9 @@ def build_program(site, spec, out_root):
                                     stops, index_of[href], scope, is_project=True))
             quiz_count += emit_quizzes(course["project"], scope, quiz_dir)
 
-    write(CONTENT / program["id"] / "program.json",
+    write(DATA / program["id"] / "program.json",
           json.dumps(nav_tree(program), indent=1, ensure_ascii=False))
-    write(CONTENT / program["id"] / "locations.csv", locations_csv(program))
+    write(DATA / program["id"] / "locations.csv", locations_csv(program))
 
     return program, warnings, quiz_count, len(stops)
 
@@ -1591,7 +1594,7 @@ def clean(out_root):
         target = out_root / name
         if target.exists():
             target.unlink()
-    for program_dir in CONTENT.iterdir() if CONTENT.exists() else []:
+    for program_dir in DATA.iterdir() if DATA.exists() else []:
         if program_dir.is_dir():
             shutil.rmtree(program_dir)
 
@@ -1602,7 +1605,7 @@ def main():
     args = ap.parse_args()
 
     site = json.loads((CONTENT / "site.json").read_text(encoding="utf-8"))
-    out_root = ROOT
+    out_root = SITE
 
     if args.clean:
         clean(out_root)

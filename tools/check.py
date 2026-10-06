@@ -13,6 +13,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
+SITE = ROOT / "docs"
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
         "meta", "param", "source", "track", "wbr"}
 PHRASING_ONLY = {"span", "b", "i", "em", "strong", "small", "code", "button", "label", "summary"}
@@ -94,7 +95,7 @@ def resolve(page, href):
     path = parsed.path
     if not path:
         return None
-    target = (ROOT / path.lstrip("/")) if path.startswith("/") else (page.parent / path)
+    target = (SITE / path.lstrip("/")) if path.startswith("/") else (page.parent / path)
     target = Path(target).resolve()
     if target.is_dir() or path.endswith("/"):
         target = target / "index.html"
@@ -102,7 +103,7 @@ def resolve(page, href):
 
 
 def main():
-    pages = sorted(ROOT.glob("*.html")) + sorted(ROOT.glob("programs/**/*.html"))
+    pages = sorted(SITE.glob("*.html")) + sorted(SITE.glob("programs/**/*.html"))
     problems = []
     checked_links = 0
     anchors = {}
@@ -116,7 +117,7 @@ def main():
         anchors[page.resolve()] = checker.ids
         parsed_pages.append((page, checker))
 
-        rel = page.relative_to(ROOT).as_posix()
+        rel = page.relative_to(SITE).as_posix()
         for err in checker.errors:
             problems.append("%s: %s" % (rel, err))
         if checker.stack:
@@ -127,7 +128,7 @@ def main():
             problems.append("%s: %d <h1> elements" % (rel, checker.h1s))
 
     for page, checker in parsed_pages:
-        rel = page.relative_to(ROOT).as_posix()
+        rel = page.relative_to(SITE).as_posix()
         for href in checker.links + checker.srcs:
             if href.startswith("#"):
                 if href[1:] and href[1:] not in checker.ids:
@@ -156,7 +157,7 @@ def main():
     for page in pages:
         quiz_refs |= set(re.findall(r'data-quiz-src="([^"]+)"', page.read_text(encoding="utf-8")))
     for ref in sorted(quiz_refs):
-        target = ROOT / ref.lstrip("/")
+        target = SITE / ref.lstrip("/")
         if not target.exists():
             problems.append("missing quiz payload %s" % ref)
             continue
@@ -172,9 +173,9 @@ def main():
     # or the report arrives in the sheet with no title against it.
     import csv as _csv
     # Ids restart at c1 in every program, so each CSV answers only for its own pages.
-    for csv_path in ROOT.glob("content/*/locations.csv"):
+    for csv_path in SITE.glob("content/*/locations.csv"):
         known = {row[0] for row in _csv.reader(csv_path.open(encoding="utf-8"))}
-        program_root = ROOT / "programs" / csv_path.parent.name
+        program_root = SITE / "programs" / csv_path.parent.name
         emitted = set()
         for page in pages:
             if program_root not in page.parents:
