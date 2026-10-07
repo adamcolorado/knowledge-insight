@@ -575,14 +575,20 @@ def vetting_panel(site, program, compact=False, scope="", where=""):
         return ""
 
     if compact:
+        # The report button sits below the strip, not in it: the strip is a
+        # disclaimer about the program, the button is an action on this page.
         report = feedback_cta(meta, small=True, label="Report an issue on this page",
                               loc=scope or "", where=where or "")
-        return f"""<aside class="vet-strip">
+        if report:
+            report = '<p class="vet-report">%s</p>' % report
+        return f"""<div class="vet-block">
+<aside class="vet-strip">
   {seal(site, program, size='sm')}
   <p>{html_escape(meta.get('blurb', ''))}
      <a href="{attr(program_href(program))}status/">What this means and how to help</a>.</p>
-  {report}
-</aside>"""
+</aside>
+{report}
+</div>"""
 
     points = "".join("<li>%s</li>" % p for p in meta.get("helpPoints", []))
     return f"""<section class="section vetting" id="vetting">

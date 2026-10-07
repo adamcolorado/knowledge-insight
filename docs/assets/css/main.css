@@ -1021,10 +1021,12 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 .status-head { display: flex; flex-wrap: wrap; gap: var(--sp-5); align-items: center; }
 .status-head > div { flex: 1 1 20rem; min-width: 0; }
 
-/* A quiet reminder on every course and lesson page. */
+/* A quiet reminder on every course and lesson page, with the page's report
+   button just below it rather than inside. */
+.vet-block { max-width: var(--measure); margin: 0 0 var(--sp-5); }
+.vet-report { margin: var(--sp-3) 0 0; }
 .vet-strip {
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
-  max-width: var(--measure); margin: 0 0 var(--sp-5); padding: var(--sp-3) var(--sp-4);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4);
   background: var(--surface-alt); border: 1px solid var(--line-warm);
   border-left: 3px solid var(--amber); border-radius: var(--r-md);
 }
@@ -1102,7 +1104,7 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 
 @media print {
   .masthead, .learnbar, .pager, .site-foot, .skip-link, .lesson-contents,
-  .vet-strip, .item-foot, .done-chip, .dialogue-actions, .dialogue-secondary,
+  .vet-block, .item-foot, .done-chip, .dialogue-actions, .dialogue-secondary,
   .writing-actions, .quiz { display: none !important; }
   body { background: #fff; font-size: 11pt; }
   .learn { display: block; width: auto; }
