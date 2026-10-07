@@ -1024,7 +1024,7 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 /* A quiet reminder on every course and lesson page. */
 .vet-strip {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
-  margin: 0 0 var(--sp-5); padding: var(--sp-3) var(--sp-4);
+  max-width: var(--measure); margin: 0 0 var(--sp-5); padding: var(--sp-3) var(--sp-4);
   background: var(--surface-alt); border: 1px solid var(--line-warm);
   border-left: 3px solid var(--amber); border-radius: var(--r-md);
 }
