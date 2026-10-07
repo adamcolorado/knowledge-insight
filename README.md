@@ -347,7 +347,7 @@ licensed stock photos that may be used on the site but not redistributed).
 | `hero-books-blue-{480,800,1280,1920}.jpg` | `knowledge-insight-background.jpg` | splash hero, responsive set |
 | `ki-mark.svg` | new | favicon and standalone mark |
 | `ki-wordmark.svg` | new | transparent wordmark for print and decks (not used by the site) |
-| `og-card.jpg` | `KI background.png` | social sharing card, 1200x630 |
+| `og-card.jpg` | `knowledge-insight-background.jpg` | social sharing card, 1200x630; rendered from `tools/og-card.html` by `tools/og-card.ps1` |
 | `adam-h.jpg` | `adam-h.jpg` | About page portrait |
 | `apple-touch-icon.png`, `favicon-32.png` | `logo.png` | icons |
 

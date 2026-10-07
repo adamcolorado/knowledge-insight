@@ -23,7 +23,7 @@ DERIVED_FROM = {
     "hero-books-blue-800.jpg": "knowledge-insight-background.jpg",
     "hero-books-blue-1280.jpg": "knowledge-insight-background.jpg",
     "hero-books-blue-1920.jpg": "knowledge-insight-background.jpg",
-    "og-card.jpg": "KI background.png",
+    "og-card.jpg": "knowledge-insight-background.jpg",
     "apple-touch-icon.png": "logo.png",
     "favicon-32.png": "logo.png",
     "logo-mark-256.png": "logo.png",
