@@ -15,6 +15,7 @@ adding an entry to content/site.json and dropping its markdown in markdown/.
 
 import argparse
 import datetime
+import hashlib
 import html
 import json
 import re
@@ -164,6 +165,14 @@ def write(path, text):
     path.write_text(text, encoding="utf-8")
 
 
+def og_image(site):
+    """The share card's URL, versioned by content so LinkedIn and others refetch it
+    when the image changes. They cache images by URL, often for weeks."""
+    card = SITE / "assets" / "img" / "og-card.jpg"
+    version = hashlib.md5(card.read_bytes()).hexdigest()[:8] if card.exists() else ""
+    return "%s/assets/img/og-card.jpg%s" % (site_url(site), "?v=" + version if version else "")
+
+
 def site_url(site):
     return "https://%s" % site.get("domain", "knowledgeinsight.org")
 
@@ -201,7 +210,7 @@ def page(title, body, description="", body_class="", site=None,
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{attr(org)}">
 {f'<meta property="og:url" content="{attr(canonical)}">' if canonical else ''}
-<meta property="og:image" content="{site_url(site)}/assets/img/og-card.jpg">
+<meta property="og:image" content="{attr(og_image(site))}">
 <meta name="twitter:card" content="summary_large_image">
 {f'<link rel="canonical" href="{attr(canonical)}">' if canonical else ''}
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
@@ -1292,7 +1301,7 @@ def build_splash(site, programs):
     </div>
   </section>
 </main>"""
-    return page(site["org"], main, description=site["tagline"],
+    return page(site["org"], main, description=site.get("description") or site["tagline"],
                 body_class="page-splash", site=site, scripts=("progress.js", "feedback.js"))
 
 
@@ -1368,7 +1377,7 @@ def build_about(site, programs):
     </section>
   </div>
 </main>"""
-    return page("About", main, description=site["tagline"],
+    return page("About", main, description=site.get("description") or site["tagline"],
                 body_class="page-about", site=site)
 
 

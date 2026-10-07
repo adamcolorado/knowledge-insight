@@ -4,10 +4,11 @@
   "legalName": "Knowledge Insight LLC",
   "contactUser": "contact",
   "tagline": "We facilitate self-paced learning for knowledge seekers.",
+  "description": "Knowledge InSight publishes self-paced programs for curious minds. You bring the curiosity; we provide the structure, sequence, and guiding questions.",
   "splashHeadline": "Open learning, built with care.",
   "splashLede": "Knowledge InSight publishes free, self-paced programs for curious minds. Every program is designed end to end: sequenced readings, guided conversation with an AI assistant, reflective writing, and self-scored checks you can take as often as you like.",
   "about": [
-    "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we bring the structure, the sequence, and the guiding questions.",
+    "Knowledge InSight makes self-paced learning experiences for curious people who want to go deeper into a subject for their own sake. There is no enrolment, no cohort, and no deadline. You bring the curiosity; we provide the structure, sequence, and guiding questions.",
     "Our programs are open access and self-paced. Nothing is graded. Quizzes score themselves and can be retaken without limit. Written work stays with you, in your own notebook or document; we never collect it.",
     "Each program is organized as a small number of courses, each course as modules, and each module as lessons. A lesson is one sitting. The structure repeats so you can settle into it and spend your attention on the material instead of the interface."
   ],
@@ -98,12 +99,36 @@
         "Weigh the competing claims about AI safety, work, information, creative rights, and governance, and state the strongest case on each side"
       ],
       "rhythm": [
-        { "kind": "reading", "title": "A motivating reading", "body": "Why the question matters, in three minutes." },
-        { "kind": "reading", "title": "Four concept readings", "body": "The ideas themselves, one at a time." },
-        { "kind": "reading", "title": "A guided walkthrough", "body": "One worked case, followed step by step." },
-        { "kind": "dialogue", "title": "A Guided Conversation", "body": "A structured conversation you run in your own AI account." },
-        { "kind": "activity", "title": "An optional activity or journal entry", "body": "A short hands-on task or writing prompt, done in your own notes." },
-        { "kind": "knowledge-check", "title": "A knowledge check", "body": "Five questions, ungraded, retry as often as you like." }
+        {
+          "kind": "reading",
+          "title": "A motivating reading",
+          "body": "Why the question matters, in three minutes."
+        },
+        {
+          "kind": "reading",
+          "title": "Four concept readings",
+          "body": "The ideas themselves, one at a time."
+        },
+        {
+          "kind": "reading",
+          "title": "A guided walkthrough",
+          "body": "One worked case, followed step by step."
+        },
+        {
+          "kind": "dialogue",
+          "title": "A Guided Conversation",
+          "body": "A structured conversation you run in your own AI account."
+        },
+        {
+          "kind": "activity",
+          "title": "An optional activity or journal entry",
+          "body": "A short hands-on task or writing prompt, done in your own notes."
+        },
+        {
+          "kind": "knowledge-check",
+          "title": "A knowledge check",
+          "body": "Five questions, ungraded, retry as often as you like."
+        }
       ],
       "sourceFiles": [
         {
