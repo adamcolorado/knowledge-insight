@@ -53,6 +53,8 @@
       btn.setAttribute("aria-pressed", String(done));
       var label = btn.querySelector(".done-label");
       if (label) label.textContent = done ? "Done" : "Mark done";
+      var item = btn.closest(".item");
+      if (item) item.classList.toggle("is-done", done);
     });
 
     KI.$$("[data-progress-for]").forEach(function (dot) {

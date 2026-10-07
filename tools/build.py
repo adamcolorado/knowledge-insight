@@ -649,8 +649,8 @@ def item_feedback(meta, iid, where):
     """
     if not (meta.get("feedbackUrl") or "").strip():
         return ""
-    return ('<p class="item-report"><a class="item-report-link" href="%s" '
-            'target="_blank" rel="noopener" %s>%s<span>Report an issue with this item</span></a></p>'
+    return ('<a class="item-report-link" href="%s" '
+            'target="_blank" rel="noopener" %s>%s<span>Report an issue with this item</span></a>'
             % (attr(meta["feedbackUrl"]), feedback_attrs(meta, iid, where), icon("external")))
 
 
@@ -715,11 +715,9 @@ def render_item(program, item, scope, index, where="", status_meta=None):
   <p class="item-kind">
     <span class="kind-chip kind-{item['type']}">{icon(ico)}{html_escape(label)}</span>
     {duration}{optional}
+    <span class="done-chip">{icon('check')}Done</span>
   </p>
   <h2 class="item-title">{item["titleHtml"]}</h2>
-  <button class="item-done" type="button" data-done-for="{attr(iid)}" aria-pressed="false">
-    {icon('check')}<span class="done-label">Mark done</span>
-  </button>
 </header>""")
 
     if item["type"] == DIALOGUE:
@@ -733,9 +731,18 @@ def render_item(program, item, scope, index, where="", status_meta=None):
         if item["type"] in (JOURNAL, ASSIGNMENT, ACTIVITY):
             bits.append(writing_actions(item, iid))
 
+    # The done control closes the item, so it is met on finishing rather
+    # than before starting; the header chip carries the status back up.
+    report = ""
     if status_meta:
-        bits.append(item_feedback(status_meta, iid,
-                                  "%s - Item %d: %s" % (where, index + 1, item["title"])))
+        report = item_feedback(status_meta, iid,
+                               "%s - Item %d: %s" % (where, index + 1, item["title"]))
+    bits.append(f"""<footer class="item-foot">
+  <button class="item-done" type="button" data-done-for="{attr(iid)}" aria-pressed="false">
+    {icon('check')}<span class="done-label">Mark done</span>
+  </button>
+  {report}
+</footer>""")
 
     return ('<article class="item item--%s%s" id="%s" data-item-id="%s">%s</article>'
             % (item["type"], " is-optional" if item["optional"] else "",

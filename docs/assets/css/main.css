@@ -588,9 +588,8 @@ pre { overflow-x: auto; }
 .kind-chip .ico { width: 14px; height: 14px; }
 .item-time { display: inline-flex; align-items: center; gap: .25rem; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .item-time .ico { width: 13px; height: 13px; }
-.item-title { font-size: clamp(1.3rem, 1.1rem + .7vw, 1.6rem); margin: 0; text-wrap: balance; padding-right: 7.5rem; }
+.item-title { font-size: clamp(1.3rem, 1.1rem + .7vw, 1.6rem); margin: 0; text-wrap: balance; }
 .item-done {
-  position: absolute; right: 0; top: 0;
   display: inline-flex; align-items: center; gap: .35rem;
   font: inherit; font-size: .78rem; font-weight: 600;
   background: var(--surface); border: 1px solid var(--line-strong); color: var(--muted);
@@ -600,6 +599,14 @@ pre { overflow-x: auto; }
 .item-done .ico { width: 15px; height: 15px; }
 .item-done:hover { border-color: var(--blue-300); color: var(--brand-dark); background: var(--blue-50); }
 .item-done[aria-pressed="true"] { background: var(--green-ink); border-color: var(--green-ink); color: #fff; }
+/* Status echo for scanning back through a lesson; the control itself is at the foot. */
+.done-chip {
+  display: none; align-items: center; gap: .25rem;
+  font-size: .74rem; font-weight: 600; color: var(--green-ink); background: var(--green-bg);
+  padding: .2rem .55rem; border-radius: var(--r-pill);
+}
+.done-chip .ico { width: 13px; height: 13px; }
+.item.is-done .done-chip { display: inline-flex; }
 .item--reading .kind-chip { background: var(--k-reading-bg); color: var(--k-reading); }
 .item--dialogue .kind-chip { background: var(--k-dialogue-bg); color: var(--k-dialogue); }
 .item--journal .kind-chip, .item--assignment .kind-chip, .item--activity .kind-chip { background: var(--k-journal-bg); color: var(--k-journal); }
@@ -935,8 +942,6 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
   .learn-main { padding-top: var(--sp-4); }
   .item--dialogue, .item--journal, .item--assignment, .item--activity,
   .item--knowledge-check, .item--graded-quiz { padding: var(--sp-4); border-radius: var(--r-md); }
-  .item-title { padding-right: 0; }
-  .item-done { position: static; margin-top: var(--sp-3); }
   .item-head { padding-bottom: var(--sp-3); }
   .prose { font-size: 1.04rem; }
   .pager { grid-template-columns: 1fr; }
@@ -960,7 +965,19 @@ tbody tr:nth-child(even) { background: var(--surface-alt); }
 
 /* Per-item report link: present on all 366 items, so it has to be quiet
    enough to ignore and findable when wanted. */
-.item-report { margin: var(--sp-4) 0 0; padding-top: .6rem; border-top: 1px dashed var(--line); }
+/* Item foot: the done control and report link close the item. On plain
+   readings its rule is also the break between items; cards already have an
+   edge, so they skip it. Wraps to two lines when the row will not fit. */
+.item-foot {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4); max-width: var(--measure);
+  margin-top: var(--sp-5); padding-bottom: var(--sp-5);
+  border-bottom: 2px solid var(--line-strong);
+}
+.item--dialogue .item-foot, .item--journal .item-foot, .item--assignment .item-foot,
+.item--activity .item-foot, .item--knowledge-check .item-foot, .item--graded-quiz .item-foot {
+  padding-bottom: 0; border-bottom: 0;
+}
 .item-report-link {
   display: inline-flex; align-items: center; gap: .35rem;
   font-size: .78rem; color: var(--slate-500); text-decoration: none;
@@ -1085,7 +1102,7 @@ a.seal:hover { box-shadow: var(--shadow-1); }
 
 @media print {
   .masthead, .learnbar, .pager, .site-foot, .skip-link, .lesson-contents,
-  .vet-strip, .item-done, .dialogue-actions, .dialogue-secondary,
+  .vet-strip, .item-foot, .done-chip, .dialogue-actions, .dialogue-secondary,
   .writing-actions, .quiz { display: none !important; }
   body { background: #fff; font-size: 11pt; }
   .learn { display: block; width: auto; }
